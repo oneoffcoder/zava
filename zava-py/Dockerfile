@@ -10,7 +10,8 @@ ENV API_VERSION=$AAPI_VERSION
 ENV PYPI_REPO=$APYPI_REPO
 
 RUN apt-get update \
-    && apt-get upgrade -y
+    && apt-get upgrade -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get install ffmpeg -y
 COPY . /code
 RUN pip install -r /code/requirements.txt
 RUN /code/publish.sh
