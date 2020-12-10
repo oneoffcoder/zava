@@ -4,13 +4,20 @@ import { Util } from './zava.core';
 
 describe('ZavaCore.Util', () => {
 
+  it('should convert degree to radian', () => {
+    const degree = 1;
+    const radian = Util.toRadians(degree);
+    expect(radian).toBeCloseTo(0.0174533, 0.001);
+  });
+
   it('should create a 3 x 3 square rotation matrix', () => {
     const n = 3;
     const i = 0;
     const j = 1;
     const deg = 1.0;
-    const sin = Math.sin(deg);
-    const cos = Math.cos(deg);
+    const theta = Util.toRadians(deg);
+    const sin = Math.sin(theta);
+    const cos = Math.cos(theta);
     const matrix = Util.getRotationMatrix(n, sin, cos, i, j);
 
     expect(matrix.length).toBe(3);
@@ -37,8 +44,9 @@ describe('ZavaCore.Util', () => {
     const i = 0;
     const j = 1;
     const deg = 1.0;
-    const sin = Math.sin(deg);
-    const cos = Math.cos(deg);
+    const theta = Util.toRadians(deg);
+    const sin = Math.sin(theta);
+    const cos = Math.cos(theta);
     const matrix = Util.getRotationMatrix(n, sin, cos, i, j);
 
     expect(matrix.length).toBe(n);
@@ -65,8 +73,9 @@ describe('ZavaCore.Util', () => {
     const i = 0;
     const j = 1;
     const deg = 1.0;
-    const sin = Math.sin(deg);
-    const cos = Math.cos(deg);
+    const theta = Util.toRadians(deg);
+    const sin = Math.sin(theta);
+    const cos = Math.cos(theta);
     const matrix = Util.getRotationMatrix(n, sin, cos, i, j);
 
     expect(matrix.length).toBe(n);

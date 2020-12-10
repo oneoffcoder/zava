@@ -8,6 +8,10 @@ export class Util {
   private constructor() {
   }
 
+  static toRadians(degree: number): number {
+    return degree * (Math.PI / 180.0);
+  }
+
   static getRotationMatrix(n: number, sin: number, cos: number, i: number, j: number): Array<Array<number>> {
     const matrix = new Array<Array<number>>();
     for (let r = 0; r < n; r++) {
