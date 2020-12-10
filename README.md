@@ -1,6 +1,6 @@
 # Zava
 
-Parallel coordinates with grand tour for exploratory data visualization of massive and high-dimensional data in TypeScript and Python
+Parallel coordinates with Grand Tour for exploratory data visualization of massive and high-dimensional data in TypeScript and Python. If you want a desktop application for use, try [VizApp](https://github.com/oneoffcoder/vizapp). 
 
 # Copyright
 ## Software
@@ -36,9 +36,9 @@ Copyright 2020 Daytchia Vang
 # Citation
 
 ```
-@misc{oneoffcoder_pypair_2020,
-title={PyPair, A Statistical API for Bivariate Association Measures},
-url={https://github.com/oneoffcoder/py-pair},
+@misc{oneoffcoder_zava_2020,
+title={zava, Parallel Coordinates with Grand Tour for TypeScript and Python},
+url={https://github.com/oneoffcoder/zava},
 author={Jee Vang},
 year={2020},
 month={Dec}}
