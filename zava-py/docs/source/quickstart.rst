@@ -109,6 +109,14 @@ Below is a full example of how to use zava to create and save the animation.
    :language: python
    :linenos:
 
+Your animation video will look like the following. If you have great tips on how to customize animations with matplotlib, please let us know!
+
+.. raw:: html
+
+    <video controls width="500" height="250" src="_static/videos/test.mov">
+        Your browser does not support the video tag.
+    </video>
+
 Considerations
 ^^^^^^^^^^^^^^
 
