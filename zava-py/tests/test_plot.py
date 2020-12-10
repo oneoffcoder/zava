@@ -1,9 +1,9 @@
 import random
 
 import matplotlib.pyplot as plt
-from matplotlib import animation
 import numpy as np
 import pandas as pd
+from matplotlib import animation
 from nose import with_setup
 
 from zava.core import GrandTour
