@@ -1,14 +1,12 @@
 import {multiply, subtract, divide, add} from 'mathjs';
 
-export class GrandTour {
-  constructor() {
-  }
-}
+// export class GrandTour {
+//   constructor() {
+//   }
+// }
 
 
 export class Util {
-  private constructor() {
-  }
 
   static toRadians(degree: number): number {
     return degree * (Math.PI / 180.0);
@@ -45,7 +43,7 @@ export class Util {
     for (let r = 0; r < n; r++) {
       for (let c = 0; c < n; c++) {
         if (r === 0 && c === 1) {
-          continue;
+
         } else if (c > r) {
           const rhs = Util.getRotationMatrix(n, sin, cos, r, c);
           matrix = multiply(matrix, rhs);
