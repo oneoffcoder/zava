@@ -41,7 +41,7 @@ title={PyPair, A Statistical API for Bivariate Association Measures},
 url={https://github.com/oneoffcoder/py-pair},
 author={Jee Vang},
 year={2020},
-month={Nov}}
+month={Dec}}
 ```
 
 # Sponsor, Love
