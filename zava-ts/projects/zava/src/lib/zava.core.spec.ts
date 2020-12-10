@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { Util } from './zava.core';
 
-describe('ZavaCore', () => {
+describe('ZavaCore.Util', () => {
 
   it('should create a 3 x 3 square rotation matrix', () => {
     const n = 3;
