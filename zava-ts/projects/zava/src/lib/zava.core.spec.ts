@@ -101,4 +101,41 @@ describe('ZavaCore.Util', () => {
     expect(matrix.length).toBe(n);
     [...matrix].forEach(row => expect(row.length).toBe(n));
   });
+
+  it('should find the min and max of columns', () => {
+    const matrix = [
+      [1.0, 2.0],
+      [2.0, 1.0],
+      [3.0, 0.5]
+    ];
+    const observed = Util.findColMinMax(matrix);
+    const expected = [
+      [1.0, 0.5],
+      [3.0, 2.0]
+    ];
+
+    expect(observed.length).toBe(expected.length);
+    expect(observed[0].length).toBe(expected[0].length);
+    for (let r = 0; r < expected.length; r++) {
+      for (let c = 0; c < expected[0].length; c++) {
+        expect(observed[r][c]).toBe(expected[r][c]);
+      }
+    }
+  });
+
+  it('should rescale', () => {
+    const M = [
+      [1.0, 2.0],
+      [2.0, 1.0],
+      [3.0, 0.5]
+    ];
+    const A = [1.0, 0.5];
+    const B = [3.0, 2.0];
+    const C = [0.0, 0.0];
+    const D = [100.0, 100.0];
+
+    const S = Util.rescale(M, A, B, C, D);
+    console.log(S);
+    expect(1).toBe(1);
+  });
 });

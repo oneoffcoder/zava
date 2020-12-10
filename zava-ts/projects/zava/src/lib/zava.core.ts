@@ -1,4 +1,4 @@
-import {multiply} from 'mathjs';
+import {multiply, subtract, divide, add} from 'mathjs';
 
 export class GrandTour {
   constructor() {
@@ -53,5 +53,41 @@ export class Util {
       }
     }
     return matrix;
+  }
+
+  static findColMinMax(M: Array<Array<number>>): Array<Array<number>> {
+    const A = new Array<number>();
+    const B = new Array<number>();
+
+    [...M[0]].forEach(v => {
+      A.push(v);
+      B.push(v);
+    });
+
+    const rows = M.length;
+    const cols = M[0].length;
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (M[r][c] < A[c]) {
+          A[c] = M[r][c];
+        }
+        if (M[r][c] > A[c]) {
+          B[c] = M[r][c];
+        }
+      }
+    }
+
+    const results = new Array<Array<number>>();
+    results.push(A);
+    results.push(B);
+    return results;
+  }
+
+  static rescale(M: Array<Array<number>>, A: Array<number>, B: Array<number>, C: Array<number>, D: Array<number>): Array<Array<number>> {
+    let S = divide(subtract(M, A), subtract(B, A));
+    S = multiply(S, subtract(D, C));
+    S = add(S, C) as Array<Array<number>>;
+    return S;
   }
 }
