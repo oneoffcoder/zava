@@ -43,7 +43,9 @@ class SinglePlotter(object):
         :param ax: Plotting axis.
         """
         S = self.__grand_tour.rotate(degree)
-        S.plot(**self.__params)
+
+        params = {**self.__params, **{'ax': ax}}
+        S.plot(**params)
 
     @property
     def grand_tour(self):
@@ -90,12 +92,13 @@ class MultiPlotter(object):
         for plotter in self.__plotters:
             plotter(degree, self.__ax)
 
-        _ = self.__ax.get_legend().remove()
-
         headers = self.__plotters[0].grand_tour.headers
         _ = self.__ax.set_xticks(np.arange(len(headers)))
         _ = self.__ax.set_xticklabels(headers)
         _ = self.__ax.get_yaxis().set_ticks([])
+
+        if self.__ax.get_legend() is not None:
+            _ = self.__ax.get_legend().remove()
 
         if 'title' in self.__kwargs:
             title = self.__ax.set_title('title')

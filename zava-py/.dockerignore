@@ -12,3 +12,4 @@ docs/build/
 .ipynb_checkpoints/
 joblib_memmap/
 .DS_store
+tests/*.mov
