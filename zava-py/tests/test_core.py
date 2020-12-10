@@ -44,6 +44,8 @@ def test_rotation():
 
     gt = GrandTour(M, c, d)
 
+    assert gt.headers == ['x0', 'x1', 'x2', 'x3']
+
     for degree in range(361):
         S = gt.rotate(degree, transpose=True, return_dataframe=True)
 
@@ -84,12 +86,14 @@ def test_rotation_with_dataframe():
         [2, 2, 1, 1],
         [1, 1, 3, 3]
     ])
-    columns = ['x1', 'x2', 'x3', 'x4']
+    columns = ['v0', 'v1', 'v2', 'v3']
     M = pd.DataFrame(M, columns=columns)
     c = 0.0
     d = 100.0
 
     gt = GrandTour(M, c, d)
+
+    assert gt.headers == columns
 
     for degree in range(361):
         S = gt.rotate(degree, transpose=True, return_dataframe=True)

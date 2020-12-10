@@ -1,5 +1,5 @@
 import math
-from functools import reduce
+from functools import reduce, lru_cache
 from itertools import combinations
 
 import numpy as np
@@ -103,6 +103,20 @@ class GrandTour(object):
         self.__is_df = isinstance(matrix, pd.core.frame.DataFrame)
         self.__c = c
         self.__d = d
+
+    @property
+    @lru_cache(maxsize=None)
+    def headers(self):
+        """
+        Gets a list of headers. The variable names or column names
+        if the matrix is a Pandas dataframe; otherwise, a list of
+        generic names :math:`x_0, x_1, \\ldots, x_n` if the matrix
+        is an ``ndarray``.
+        """
+        if self.__is_df:
+            return list(self.__matrix.columns)
+        else:
+            return [f'x{i}' for i in range(self.__matrix.shape[1])]
 
     def rotate(self, degree, transpose=True, return_dataframe=True):
         """
