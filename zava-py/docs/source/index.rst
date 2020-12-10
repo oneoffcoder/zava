@@ -36,6 +36,7 @@ Massive and high-dimensional numerical (or continuous) data may visualized using
    :caption: Contents
 
    quickstart
+   jupyter
    zzz-bib
 
 .. toctree::

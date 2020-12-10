@@ -103,7 +103,7 @@ Later, we will look at how to use zava in a Jupyter notebook.
 Animations
 ^^^^^^^^^^
 
-Below is a full example of how to use zava to create and save the animation.
+Below is a full example of how to use zava to create and save the animation. You should have `ffmpeg <https://ffmpeg.org/>`_ installed and in your path to get this example to work since ``matplotlib`` relies on ffmpeg to create the video.
 
 .. literalinclude:: _code/animation-demo.py
    :language: python

@@ -11,3 +11,7 @@ table.rc-headers, th.rc-headers, td.rc-headers {
 th.heading, td.heading {
     font-weight: bold;
 }
+
+div.output_area.docutils.container > div.widget-subarea:first-child {
+    display: none;
+}
