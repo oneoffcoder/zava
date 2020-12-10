@@ -55,6 +55,8 @@ def __rescale(M, C, D):
     minimum, C, and maximum, D. C and D should be of the
     dimension 1 x cols.
 
+    - TODO: avoid recomputing A and B, might not be efficient
+
     :param M: Matrix.
     :param C: Vector of new target minimums.
     :param D: Vector of new target maximums.
