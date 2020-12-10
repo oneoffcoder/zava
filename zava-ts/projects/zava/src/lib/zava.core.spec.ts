@@ -1,5 +1,3 @@
-import { TestBed } from '@angular/core/testing';
-
 import { Util } from './zava.core';
 
 describe('ZavaCore.Util', () => {
@@ -95,5 +93,12 @@ describe('ZavaCore.Util', () => {
         }
       }
     }
+  });
+
+  it('should get Givens rotation matrix', () => {
+    const n = 3;
+    const matrix = Util.getGivens(n, 1);
+    expect(matrix.length).toBe(n);
+    [...matrix].forEach(row => expect(row.length).toBe(n));
   });
 });

@@ -1,3 +1,5 @@
+import {multiply} from 'mathjs';
+
 export class GrandTour {
   constructor() {
   }
@@ -30,6 +32,25 @@ export class Util {
         }
       }
       matrix.push(row);
+    }
+    return matrix;
+  }
+
+  static getGivens(n: number, degree: number): Array<Array<number>> {
+    const theta = Util.toRadians(degree);
+    const sin = Math.sin(theta);
+    const cos = Math.cos(theta);
+
+    let matrix = Util.getRotationMatrix(n, sin, cos, 0, 1);
+    for (let r = 0; r < n; r++) {
+      for (let c = 0; c < n; c++) {
+        if (r === 0 && c === 1) {
+          continue;
+        } else if (c > r) {
+          const rhs = Util.getRotationMatrix(n, sin, cos, r, c);
+          matrix = multiply(matrix, rhs);
+        }
+      }
     }
     return matrix;
   }
