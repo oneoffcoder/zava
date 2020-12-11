@@ -4,8 +4,7 @@ import * as d3 from 'd3';
 @Component({
   selector: 'app-pcoord',
   templateUrl: './pcoord.component.html',
-  styleUrls: ['./pcoord.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./pcoord.component.scss']
 })
 export class PcoordComponent implements OnInit, AfterViewInit {
 
@@ -36,26 +35,22 @@ export class PcoordComponent implements OnInit, AfterViewInit {
     const width = this.totalWidth - margin.left - margin.right;
     const height = this.totalHeight - margin.top - margin.bottom;
 
-    const x = d3.scaleLinear([0, this.data.headers.length],[0, width]);
+    const x = d3.scaleLinear([0, this.data.headers.length], [0, width]);
     const y = new Map<number, any>(this.data.headers.map((header, i) => {
       const domain = d3.extent(this.data.data, (row) => row[i]) as [number, number];
       const range = [height, 0];
       return [i, d3.scaleLinear(domain, range)];
     }));
 
-    const line = d3.line();
-
-    this.data.data.forEach(row => {
-      const v = row.map((val, c) => [x(c), y.get(c)(val)]);
-      console.log(v);
-    });
-
-    const svg = d3.select('div#display')
+    const svg = d3.select('div')
       .append('svg')
+      .attr('id', 'zavaSvg')
       .attr('width', this.totalWidth)
       .attr('height', this.totalHeight)
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    const line = d3.line();
 
     const background = svg.append('g')
       .attr('class', 'background')
@@ -91,7 +86,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .attr('class', 'dimension')
       .attr('transform', (h, i) => `translate(${x(i)})`);
 
-    const axis = d3.axisLeft(d3.scaleLinear([0, this.data.headers.length],[0, width]));
+    const axis = d3.axisLeft(d3.scaleLinear([0, this.data.headers.length], [0, width]));
     g.append('g')
       .attr('class', 'axis')
       .each((e, n, g) => {
@@ -102,7 +97,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .attr('y', -9)
       .attr('text-shadow', '0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff')
       .attr('cursor', 'move')
-      .attr('color', 'black')
+      .attr('fill', 'black')
       .text((e, i) => this.data.headers[i]);
   }
 
@@ -115,7 +110,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .map(tokens => tokens.filter((v, i) => i > 0))
       .map(tokens => tokens.map(v => v.trim()))
       .map(tokens => tokens.map(v => +v));
-    const items = data.slice(0, 3);
+    // const items = data.slice(0, 3);
 
     return {headers, data};
   }
