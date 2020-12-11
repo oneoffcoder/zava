@@ -1,43 +1,19 @@
-# Zava
+# zava
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+Parallel coordinates with Grand Tour for exploratory data visualization of massive and high-dimensional data in TypeScript. If you want a desktop application for use, try [VizApp](https://github.com/oneoffcoder/vizapp).
 
-## Code scaffolding
+# Citation
 
-Run `ng generate component component-name --project zava` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project zava`.
-> Note: Don't forget to add `--project zava` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build zava` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build zava`, go to the dist folder `cd dist/zava` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test zava` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-## Peer Dependencies
-
-If you need to install the peer dependencies, use `npm-install-peers`.
-
-```bash
-npm install -g npm-install-peers
-npm-install-peers
+```
+@misc{oneoffcoder_zava_2020,
+title={zava, Parallel Coordinates with Grand Tour for TypeScript and Python},
+url={https://github.com/oneoffcoder/zava},
+author={Jee Vang},
+year={2020},
+month={Dec}}
 ```
 
-## Documentation
+# Sponsor, Love
 
-Documentation is built using [compodoc](https://compodoc.app/).
-
-```bash
-npm install -g @compodoc/compodoc
-compodoc -p tsconfig.lib.json src -s
-```
-
+- [Patreon](https://www.patreon.com/vangj)
+- [GitHub](https://github.com/sponsors/vangj)

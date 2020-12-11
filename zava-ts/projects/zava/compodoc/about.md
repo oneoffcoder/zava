@@ -1,6 +1,15 @@
-# Zava
+# About
 
-Parallel coordinates with Grand Tour for exploratory data visualization of massive and high-dimensional data in TypeScript and Python. If you want a desktop application for use, try [VizApp](https://github.com/oneoffcoder/vizapp). 
+![One-Off Coder Log](../images/ooc-logo.png)
+
+One-Off Coder is an educational, service and product company. Please visit us online to discover how we may help you achieve life-long success in your personal coding career or with your company’s business goals and objectives.
+
+- [Website](https://www.oneoffcoder.com/)
+- [Facebook](https://www.facebook.com/One-Off-Coder-309817926496801/)
+- [Twitter](https://twitter.com/oneoffcoder)
+- [Instagram](https://www.instagram.com/oneoffcoder/)
+- [YouTube](https://www.youtube.com/channel/UCCCv8Glpb2dq2mhUj5mcHCQ)
+- [LinkedIn](https://www.linkedin.com/company/one-off-coder/)
 
 # Copyright
 
@@ -32,20 +41,6 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 ## Art
 
+```
 Copyright 2020 Daytchia Vang
-
-# Citation
-
 ```
-@misc{oneoffcoder_zava_2020,
-title={zava, Parallel Coordinates with Grand Tour for TypeScript and Python},
-url={https://github.com/oneoffcoder/zava},
-author={Jee Vang},
-year={2020},
-month={Dec}}
-```
-
-# Sponsor, Love
-
-- [Patreon](https://www.patreon.com/vangj)
-- [GitHub](https://github.com/sponsors/vangj)
