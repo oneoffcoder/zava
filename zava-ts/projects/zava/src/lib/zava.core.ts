@@ -83,9 +83,20 @@ export class Util {
   }
 
   static rescale(M: Array<Array<number>>, A: Array<number>, B: Array<number>, C: Array<number>, D: Array<number>): Array<Array<number>> {
-    let S = divide(subtract(M, A), subtract(B, A));
-    S = multiply(S, subtract(D, C));
-    S = add(S, C) as Array<Array<number>>;
+    const S = new Array<Array<number>>();
+
+    const rows = M.length;
+    const cols = M[0].length;
+
+    for (let r = 0; r < rows; r++) {
+      const data = new Array<number>();
+      for (let c = 0; c < cols; c++) {
+        const scaled = (M[r][c] - A[c]) / (B[c] - A[c]) * (D[c] - C[c]) + C[c];
+        data.push(scaled);
+      }
+      S.push(data);
+    }
+
     return S;
   }
 }

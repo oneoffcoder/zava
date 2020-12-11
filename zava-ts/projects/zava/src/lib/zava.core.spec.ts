@@ -134,8 +134,19 @@ describe('ZavaCore.Util', () => {
     const C = [0.0, 0.0];
     const D = [100.0, 100.0];
 
-    const S = Util.rescale(M, A, B, C, D);
-    console.log(S);
-    expect(1).toBe(1);
+    const E = Util.rescale(M, A, B, C, D);
+    const O = [
+      [0, 100],
+      [50, 33.3333],
+      [100, 0]
+    ];
+
+    expect(E.length).toBe(O.length);
+    expect(E[0].length).toBe(O[0].length);
+    for (let r = 0; r < O.length; r++) {
+      for (let c = 0; c < O[0].length; c++) {
+        expect(E[r][c]).toBeCloseTo(O[r][c], 0.0001);
+      }
+    }
   });
 });
