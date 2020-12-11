@@ -65,7 +65,7 @@ def test_plot():
     params = {
         'fig': fig,
         'func': mp,
-        'frames': np.linspace(0, 360, 360),
+        'frames': np.linspace(0, 360, 10),
         'interval': 20,
         'init_func': mp.init
     }
