@@ -47,6 +47,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .attr('id', 'zavaSvg')
       .attr('width', this.totalWidth)
       .attr('height', this.totalHeight)
+      .attr('font', '10px sans-serif')
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
@@ -103,7 +104,8 @@ export class PcoordComponent implements OnInit, AfterViewInit {
 
   private getData(): {headers: Array<string>, data: Array<Array<number>>} {
     const headers = 'economy_mpg,cylinders,displacement_cc,power_hp,weight_lb,0_60_mph_s,year'
-      .split(',');
+      .split(',')
+      .map(token => token.trim().toLowerCase());
 
     const data = this.getCsv().split('\n')
       .map(line => line.split(','))
