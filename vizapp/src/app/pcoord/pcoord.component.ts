@@ -56,7 +56,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       return [i, d3.scaleLinear(domain, range)];
     }));
 
-    const svg = d3.select('div')
+    const svg = d3.select('div#zavaDisplay')
       .append('svg')
       .attr('id', 'zavaSvg')
       .attr('width', this.totalWidth)
