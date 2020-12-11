@@ -13,7 +13,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   marginTop = 50;
   marginBottom = 10;
   marginRight = 10;
-  marginLeft = 30;
+  marginLeft = 50;
   totalWidth = 960;
   totalHeight = 500;
 
