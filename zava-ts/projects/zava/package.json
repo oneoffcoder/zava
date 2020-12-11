@@ -1,13 +1,23 @@
 {
   "name": "zava",
   "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "deps": "npm install & npm-install-peers"
+  },
   "peerDependencies": {
     "@angular/common": "^11.0.4",
-    "@angular/core": "^11.0.4",
-    "@types/mathjs": "^6.0.8",
-    "mathjs": "^8.1.0"
+    "@angular/core": "^11.0.4"
   },
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/mathjs": "^6.0.8",
+    "mathjs": "^8.1.0"
   }
 }

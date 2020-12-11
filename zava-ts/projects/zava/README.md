@@ -22,3 +22,10 @@ Run `ng test zava` to execute the unit tests via [Karma](https://karma-runner.gi
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Peer Dependencies
+
+```bash
+npm install -g npm-install-peers
+npm-install-peers
+```
