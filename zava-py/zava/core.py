@@ -49,7 +49,7 @@ def __get_givens(n, deg):
     return r.toarray()
 
 
-def __rescale(M, C, D):
+def _rescale(M, C, D):
     """
     Rescales the specified matrix, M, according to the new
     minimum, C, and maximum, D. C and D should be of the
@@ -68,24 +68,18 @@ def __rescale(M, C, D):
     return (M - A) / (B - A) * (D - C) + C
 
 
-def _rotate(M, c=0.0, d=100.0, deg=0.0):
+def _rotate(M, deg=0.0):
     """
-    Rotates and scales the specified matrix.
+    Rotates the specified matrix.
 
     :param M: Matrix.
-    :param c: Vector of new target minimums. Default vector of 0.0.
-    :param d: Vector of new target maximums. Default vector of 100.0.
     :param deg: Rotation in degrees. Default 0.0.
-    :return: Matrix (rotated + scaled).
+    :return: Matrix (rotated).
     """
     R = __get_givens(M.shape[1], deg)
-    N = np.dot(M, R)
+    G = np.dot(M, R)
 
-    C = np.repeat(c, M.shape[1])
-    D = np.repeat(d, M.shape[1])
-    S = __rescale(N, C, D)
-
-    return S
+    return G
 
 
 class GrandTour(object):
@@ -101,13 +95,18 @@ class GrandTour(object):
         :param c: Minimum value for scaling. Default 0.0.
         :param d: Maximum value for scaling. Default 100.0.
         """
-        self.__matrix = matrix
         self.__is_df = isinstance(matrix, pd.core.frame.DataFrame)
-        self.__c = c
-        self.__d = d
+
+        if self.__is_df:
+            self.__headers = list(matrix.columns)
+        else:
+            self.__headers = [f'x{i}' for i in range(matrix.shape[1])]
+
+        C = np.repeat(c, matrix.shape[1])
+        D = np.repeat(d, matrix.shape[1])
+        self.__matrix = _rescale(matrix, C, D)
 
     @property
-    @lru_cache(maxsize=None)
     def headers(self):
         """
         Gets a list of headers. The variable names or column names
@@ -115,10 +114,7 @@ class GrandTour(object):
         generic names :math:`x_0, x_1, \\ldots, x_n` if the matrix
         is an ``ndarray``.
         """
-        if self.__is_df:
-            return list(self.__matrix.columns)
-        else:
-            return [f'x{i}' for i in range(self.__matrix.shape[1])]
+        return self.__headers
 
     def rotate(self, degree, transpose=True, return_dataframe=True):
         """
@@ -132,7 +128,7 @@ class GrandTour(object):
         :param return_dataframe: Boolean. Default is True.
         :return: Pandas dataframe or 2-D numpy ndarray.
         """
-        S = _rotate(self.__matrix, self.__c, self.__d, degree)
+        S = _rotate(self.__matrix, degree)
         if transpose:
             S = S.T
 

@@ -75,7 +75,8 @@ def test_plot():
     params = {
         'filename': 'test.mov',
         'dpi': 500,
-        'progress_callback': lambda i, n: print(f'Saving frame {i} of {n}'),
+        'progress_callback': lambda i, n: print(f'saving frame {i} / {n}'),
+        'writer': 'ffmpeg',
         'metadata': {
             'title': 'Parallel Coordinates with Grand Tour',
             'artist': 'Clint Eastwood',
