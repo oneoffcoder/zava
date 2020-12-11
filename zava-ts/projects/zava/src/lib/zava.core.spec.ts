@@ -1,4 +1,45 @@
-import { Util } from './zava.core';
+import { GrandTour, Util } from './zava.core';
+
+describe('ZavaCore.GrandTour', () => {
+  it('should rotate a matrix', () => {
+    const M = [
+      [1.0, 2.0],
+      [2.0, 1.0],
+      [3.0, 0.5]
+    ];
+
+    const grandTour = new GrandTour(M);
+    let O = grandTour.rotate(0);
+    let E = [
+      [0, 100],
+      [50, 33.33333333333333],
+      [100, 0]
+    ];
+
+    expect(E.length).toBe(O.length);
+    expect(E[0].length).toBe(O[0].length);
+    for (let r = 0; r < O.length; r++) {
+      for (let c = 0; c < O[0].length; c++) {
+        expect(E[r][c]).toBeCloseTo(O[r][c], 0.0001);
+      }
+    }
+
+    O = grandTour.rotate(1);
+    E = [
+      [-1.7452406437283512, 99.98476951563913],
+      [49.41063787657678, 34.20087682707722],
+      [99.98476951563913, 1.7452406437283512]
+    ];
+
+    expect(E.length).toBe(O.length);
+    expect(E[0].length).toBe(O[0].length);
+    for (let r = 0; r < O.length; r++) {
+      for (let c = 0; c < O[0].length; c++) {
+        expect(E[r][c]).toBeCloseTo(O[r][c], 0.0001);
+      }
+    }
+  });
+});
 
 describe('ZavaCore.Util', () => {
 

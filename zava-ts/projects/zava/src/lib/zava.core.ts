@@ -1,9 +1,28 @@
-import {multiply, subtract, divide, add} from 'mathjs';
+import {multiply, transpose} from 'mathjs';
 
-// export class GrandTour {
-//   constructor() {
-//   }
-// }
+export class GrandTour {
+  private readonly M: Array<Array<number>>;
+
+  constructor(M: Array<Array<number>>, c= 0.0, d= 100.0) {
+    const minMax = Util.findColMinMax(M);
+    const A = minMax[0];
+    const B = minMax[1];
+    const C = Util.getVector(M[0].length, c);
+    const D = Util.getVector(M[0].length, d);
+
+    this.M = Util.rescale(M, A, B, C, D);
+  }
+
+  public rotate(degree: number, doTranspose=false): Array<Array<number>> {
+    let G = Util.rotate(this.M, degree);
+
+    if (doTranspose === true) {
+      G = transpose(G);
+    }
+
+    return G;
+  }
+}
 
 
 export class Util {
@@ -80,6 +99,14 @@ export class Util {
     results.push(A);
     results.push(B);
     return results;
+  }
+
+  static getVector(n: number, val: number): Array<number> {
+    const v = new Array<number>();
+    for (let i = 0; i < n; i++) {
+      v.push(val);
+    }
+    return v;
   }
 
   static rescale(M: Array<Array<number>>, A: Array<number>, B: Array<number>, C: Array<number>, D: Array<number>): Array<Array<number>> {
