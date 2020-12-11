@@ -66,6 +66,12 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     const line = d3.line();
+    const toCoord = (v: number, c: number) => [x(c), y.get(c)(v)];
+    const rowToCoord = (row: number[]) => row.map((v, c) => toCoord(v, c));
+    const rowToLine = (row: number[]) => {
+      const data = rowToCoord(row) as [number, number][];
+      return line(data);
+    };
 
     svg.append('g')
       .attr('class', 'background')
@@ -73,14 +79,12 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .data(this.data.data)
       .enter()
       .append('path')
-      .attr('d',
-        (row) =>
-          line(row.map(
-            (value, c) => [x(c), y.get(c)(value)])))
+      .attr('d', (row) => rowToLine(row))
       .each((data, index, group) => {
+        const item = d3.select(group[index]);
         for (const k of this.backgroundAttrs.keys()) {
           const v = this.backgroundAttrs.get(k) as string;
-          d3.select(group[index]).attr(k, v);
+          item.attr(k, v);
         }
       });
 
@@ -101,9 +105,10 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .append('text')
       .text((e, i) => this.data.headers[i])
       .each((data, index, group) => {
+        const item = d3.select(group[index]);
         for (const k of this.axisLabelAttrs.keys()) {
           const v = this.axisLabelAttrs.get(k) as string;
-          d3.select(group[index]).attr(k, v);
+          item.attr(k, v);
         }
       });
   }
