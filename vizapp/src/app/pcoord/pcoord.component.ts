@@ -17,7 +17,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   totalWidth = 960;
   totalHeight = 500;
 
-  backgroundAttrs = new Map<string, string>([
+  lineAttrs = new Map<string, string>([
     ['fill', 'none'],
     ['stroke', '#e0e0e0'],
     ['shape-rendering', 'crispEdges']
@@ -74,16 +74,17 @@ export class PcoordComponent implements OnInit, AfterViewInit {
     };
 
     svg.append('g')
-      .attr('class', 'background')
+      .attr('class', 'lines')
       .selectAll('path')
       .data(this.data.data)
       .enter()
       .append('path')
+      .attr('class', 'line-path')
       .attr('d', (row) => rowToLine(row))
       .each((data, index, group) => {
         const item = d3.select(group[index]);
-        for (const k of this.backgroundAttrs.keys()) {
-          const v = this.backgroundAttrs.get(k) as string;
+        for (const k of this.lineAttrs.keys()) {
+          const v = this.lineAttrs.get(k) as string;
           item.attr(k, v);
         }
       });
