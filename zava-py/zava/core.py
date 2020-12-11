@@ -1,5 +1,5 @@
 import math
-from functools import reduce, lru_cache
+from functools import reduce
 from itertools import combinations
 
 import numpy as np
