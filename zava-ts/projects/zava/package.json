@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
-    "deps": "npm install & npm-install-peers",
+    "init": "npm install & npm-install-peers",
     "compodoc": "npx compodoc -p tsconfig.lib.json -n zava --hideGenerator --customFavicon compodoc/favicon.ico --customLogo compodoc/logo.png src"
   },
   "peerDependencies": {
