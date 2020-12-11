@@ -143,6 +143,30 @@ describe('ZavaCore.Util', () => {
 
     expect(E.length).toBe(O.length);
     expect(E[0].length).toBe(O[0].length);
+
+    for (let r = 0; r < O.length; r++) {
+      for (let c = 0; c < O[0].length; c++) {
+        expect(E[r][c]).toBeCloseTo(O[r][c], 0.0001);
+      }
+    }
+  });
+
+  it('should rotate the data', () => {
+    const M = [
+      [0, 100],
+      [50, 33.3333],
+      [100, 0]
+    ];
+
+    const O = Util.rotate(M, 1);
+    const E = [
+      [-1.7452406437283512, 99.98476951563913],
+      [49.41063845832366, 34.20084349882072],
+      [99.98476951563913, 1.7452406437283512]
+    ];
+
+    expect(E.length).toBe(O.length);
+    expect(E[0].length).toBe(O[0].length);
     for (let r = 0; r < O.length; r++) {
       for (let c = 0; c < O[0].length; c++) {
         expect(E[r][c]).toBeCloseTo(O[r][c], 0.0001);

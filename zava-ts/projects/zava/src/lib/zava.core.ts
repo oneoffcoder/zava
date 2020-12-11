@@ -99,4 +99,10 @@ export class Util {
 
     return S;
   }
+
+  static rotate(M: Array<Array<number>>, degree: number): Array<Array<number>> {
+    const R = Util.getGivens(M[0].length, degree);
+    const G = multiply(M, R);
+    return G;
+  }
 }
