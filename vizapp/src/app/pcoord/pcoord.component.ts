@@ -17,6 +17,20 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   totalWidth = 960;
   totalHeight = 500;
 
+  backgroundAttrs = new Map<string, string>([
+    ['fill', 'none'],
+    ['stroke', '#e0e0e0'],
+    ['shape-rendering', 'crispEdges']
+  ]);
+
+  axisLabelAttrs = new Map<string, string>([
+    ['text-anchor', 'middle'],
+    ['y', '-9'],
+    ['text-shadow', '0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff'],
+    ['cursor', 'move'],
+    ['fill', 'black']
+  ]);
+
   constructor() {
     this.data = this.getData();
   }
@@ -63,21 +77,12 @@ export class PcoordComponent implements OnInit, AfterViewInit {
         (row) =>
           line(row.map(
             (value, c) => [x(c), y.get(c)(value)])))
-      .attr('fill', 'none')
-      .attr('stroke', '#ddd')
-      .attr('shape-rendering', 'crispEdges');
-
-    const foreground = svg.append('g')
-      .attr('class', 'foreground')
-      .selectAll('path')
-      .data(this.data.data)
-      .append('path')
-      .attr('d',
-        (row) =>
-          line(row.map(
-            (value, c) => [x(c), y.get(c)(value)])))
-      .attr('fill', 'none')
-      .attr('stroke', 'steelblue');
+      .each((e, n, g) => {
+        for (const k of this.backgroundAttrs.keys()) {
+          const v = this.backgroundAttrs.get(k) as string;
+          d3.select(g[n]).attr(k, v);
+        }
+      });
 
     const dimensions = y.values();
     const g = svg.selectAll('.dimension')
@@ -94,12 +99,13 @@ export class PcoordComponent implements OnInit, AfterViewInit {
         d3.select(g[n]).call(axis.scale(y.get(n)));
       })
       .append('text')
-      .style('text-anchor', 'middle')
-      .attr('y', -9)
-      .attr('text-shadow', '0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff')
-      .attr('cursor', 'move')
-      .attr('fill', 'black')
-      .text((e, i) => this.data.headers[i]);
+      .text((e, i) => this.data.headers[i])
+      .each((e, n, g) => {
+        for (const k of this.axisLabelAttrs.keys()) {
+          const v = this.axisLabelAttrs.get(k) as string;
+          d3.select(g[n]).attr(k, v);
+        }
+      });
   }
 
   private getData(): {headers: Array<string>, data: Array<Array<number>>} {
