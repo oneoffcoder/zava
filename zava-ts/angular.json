@@ -26,7 +26,8 @@
           "options": {
             "main": "projects/zava/src/test.ts",
             "tsConfig": "projects/zava/tsconfig.spec.json",
-            "karmaConfig": "projects/zava/karma.conf.js"
+            "karmaConfig": "projects/zava/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {

@@ -5,9 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
-    "deps": "npm install & npm-install-peers"
+    "deps": "npm install & npm-install-peers",
+    "compodoc": "npx compodoc -p tsconfig.lib.json -n zava --hideGenerator --customFavicon compodoc/favicon.ico --customLogo compodoc/logo.png src"
   },
   "peerDependencies": {
     "@angular/common": "^11.0.4",

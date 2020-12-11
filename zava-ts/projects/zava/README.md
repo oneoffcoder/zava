@@ -25,7 +25,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Peer Dependencies
 
+If you need to install the peer dependencies, use `npm-install-peers`.
+
 ```bash
 npm install -g npm-install-peers
 npm-install-peers
 ```
+
+## Documentation
+
+Documentation is built using [compodoc](https://compodoc.app/).
+
+```bash
+npm install -g @compodoc/compodoc
+compodoc -p tsconfig.lib.json src -s
+```
+

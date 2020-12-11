@@ -4,6 +4,9 @@ import {multiply, transpose} from 'mathjs';
  * Grand Tour.
  */
 export class GrandTour {
+  /**
+   * Scaled data.
+   */
   private readonly M: Array<Array<number>>;
 
   /**
