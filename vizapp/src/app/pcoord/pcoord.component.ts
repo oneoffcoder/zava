@@ -8,7 +8,7 @@ import * as d3 from 'd3';
 })
 export class PcoordComponent implements OnInit, AfterViewInit {
 
-  data: {headers: Array<string>, data: Array<Array<number>>};
+  data: {headers: Array<string>, data: Array<Array<number>>, colors: Array<string>};
 
   marginTop = 50;
   marginBottom = 10;
@@ -19,7 +19,6 @@ export class PcoordComponent implements OnInit, AfterViewInit {
 
   lineAttrs = new Map<string, string>([
     ['fill', 'none'],
-    ['stroke', '#e0e0e0'],
     ['shape-rendering', 'crispEdges']
   ]);
 
@@ -81,6 +80,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .append('path')
       .attr('class', 'line-path')
       .attr('d', (row) => rowToLine(row))
+      .attr('stroke', (row, index) => this.data.colors[index])
       .each((data, index, group) => {
         const item = d3.select(group[index]);
         for (const k of this.lineAttrs.keys()) {
@@ -114,7 +114,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       });
   }
 
-  private getData(): {headers: Array<string>, data: Array<Array<number>>} {
+  private getData(): {headers: Array<string>, data: Array<Array<number>>, colors: Array<string>} {
     const headers = 'economy_mpg,cylinders,displacement_cc,power_hp,weight_lb,0_60_mph_s,year'
       .split(',')
       .map(token => token.trim().toLowerCase());
@@ -126,7 +126,9 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .map(tokens => tokens.map(v => +v));
     // const items = data.slice(0, 3);
 
-    return {headers, data};
+    const colors = data.map((rows) => rows[1] < 6.0 ? '#e0e0e0' : 'steelblue');
+
+    return {headers, data, colors};
   }
 
   private getCsv(): string {
