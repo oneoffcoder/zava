@@ -1,3 +1,15 @@
 <div>
   <app-pcoord></app-pcoord>
+
+  <section id="zavaControls">
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" (click)="rotateForward()">Forward</button>
+      <button mat-raised-button color="primary" (click)="rotateBackward()">Backward</button>
+      <button mat-raised-button color="accent" (click)="resetRotation()">Reset</button>
+    </div>
+    <div class="example-button-row">
+      <button mat-raised-button color="warn" (click)="animateRotation()">Animation</button>
+      <button mat-raised-button color="accent" (click)="stopRotation()">Stop Animation</button>
+    </div>
+  </section>
 </div>
