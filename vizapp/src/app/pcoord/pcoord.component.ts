@@ -31,6 +31,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
     ['fill', 'black']
   ]);
 
+  line = d3.line();
   xScaler: any;
   yScalers: any;
 
@@ -76,14 +77,6 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    const line = d3.line();
-    const toCoord = (v: number, c: number) => [xScaler(c), yScalers.get(c)(v)];
-    const rowToCoord = (row: number[]) => row.map((v, c) => toCoord(v, c));
-    const rowToLine = (row: number[]) => {
-      const data = rowToCoord(row) as [number, number][];
-      return line(data);
-    };
-
     svg.append('g')
       .attr('class', 'lines')
       .selectAll('path')
@@ -91,7 +84,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .enter()
       .append('path')
       .attr('class', 'line-path')
-      .attr('d', (row) => rowToLine(row))
+      .attr('d', (row) => this.getLine(row))
       .attr('stroke', (row, index) => this.data.colors[index])
       .each((data, index, group) => {
         const item = d3.select(group[index]);
@@ -576,22 +569,26 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   }
 
   private doRotation(): void {
-    const line = d3.line();
-    const xScaler = this.xScaler;
-    const yScalers = this.yScalers;
-
-    const toCoord = (v: number, c: number) => [xScaler(c), yScalers.get(c)(v)];
-    const rowToCoord = (row: number[]) => row.map((v, c) => toCoord(v, c));
-    const rowToLine = (row: number[]) => {
-      const d = rowToCoord(row) as [number, number][];
-      return line(d);
-    };
-
     const data = this.grandTour.rotate(this.degree);
     this.data.data = data;
 
     d3.selectAll('.line-path')
       .data(this.data.data)
-      .attr('d', (row) => rowToLine(row));
+      .attr('d', (row) => this.getLine(row));
+  }
+
+  private getLine(row: number[]): string {
+    const line = this.line;
+    const xScaler = this.xScaler;
+    const yScalers = this.yScalers;
+
+    const toCoord = (v: number, c: number) => [xScaler(c), yScalers.get(c)(v)];
+    const rowToCoord = (r: number[]) => r.map((v, c) => toCoord(v, c));
+    const rowToLine = (r: number[]) => {
+      const d = rowToCoord(r) as [number, number][];
+      return line(d);
+    };
+
+    return rowToLine(row) as string;
   }
 }
