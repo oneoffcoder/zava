@@ -4,7 +4,8 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "mathjs": "mathjs"
+      "mathjs": "mathjs",
+      "d3": "d3"
     }
   }
 }

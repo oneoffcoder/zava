@@ -10,37 +10,39 @@ export class GrandTour {
   private readonly M: Array<Array<number>>;
 
   /**
+   * Minimum.
+   */
+  private readonly min: number;
+
+  /**
+   * Maximum.
+   */
+  private readonly max: number;
+
+  /**
    * ctor.
    *
    * @param M Matrix.
-   * @param c Minimum (for scaling).
-   * @param d Maximum (for scaling).
+   * @param min Minimum (for scaling).
+   * @param max Maximum (for scaling).
    */
-  constructor(M: Array<Array<number>>, c= 0.0, d= 100.0) {
-    const minMax = Util.findColMinMax(M);
-    const A = minMax[0];
-    const B = minMax[1];
-    const C = Util.getVector(M[0].length, c);
-    const D = Util.getVector(M[0].length, d);
-
-    this.M = Util.rescale(M, A, B, C, D);
+  constructor(M: Array<Array<number>>, min= 0.0, max= 100.0) {
+    this.M = M;
+    this.min = min;
+    this.max = max;
   }
 
   /**
    * Rotates the data.
    *
    * @param degree Degree.
-   * @param doTranspose Boolean indicating if output matrix should be transposed.
    * @return Rotated matrix.
    */
-  public rotate(degree: number, doTranspose= false): Array<Array<number>> {
-    let G = Util.rotate(this.M, degree);
+  public rotate(degree: number): Array<Array<number>> {
+    const G = Util.rotate(this.M, degree);
+    const S = Util.rescale(G, this.min, this.max);
 
-    if (doTranspose === true) {
-      G = transpose(G);
-    }
-
-    return G;
+    return S;
   }
 }
 
@@ -183,13 +185,17 @@ export class Util {
    * - v_new = (v_old - a) / (b - a) * (d - c) + c
    *
    * @param M Matrix.
-   * @param A Current minimum values of the columns.
-   * @param B Current maximum values of the columns.
-   * @param C Target minimum values of the columns.
-   * @param D Target maximum values of the columns.
+   * @param min Minimum.
+   * @param max Maximum.
    * @return Matrix (scaled).
    */
-  static rescale(M: Array<Array<number>>, A: Array<number>, B: Array<number>, C: Array<number>, D: Array<number>): Array<Array<number>> {
+  static rescale(M: Array<Array<number>>, min = 0.0, max = 100.0): Array<Array<number>> {
+    const minMax = Util.findColMinMax(M);
+    const A = minMax[0];
+    const B = minMax[1];
+    const C = Util.getVector(M[0].length, min);
+    const D = Util.getVector(M[0].length, max);
+
     const S = new Array<Array<number>>();
 
     const rows = M.length;
@@ -198,7 +204,14 @@ export class Util {
     for (let r = 0; r < rows; r++) {
       const data = new Array<number>();
       for (let c = 0; c < cols; c++) {
-        const scaled = (M[r][c] - A[c]) / (B[c] - A[c]) * (D[c] - C[c]) + C[c];
+        let scaled = (M[r][c] - A[c]) / (B[c] - A[c]) * (D[c] - C[c]) + C[c];
+
+        if (isNaN(scaled)) {
+          scaled = 0.0;
+        } else {
+          scaled = Math.min(max, Math.max(min, scaled));
+        }
+
         data.push(scaled);
       }
       S.push(data);

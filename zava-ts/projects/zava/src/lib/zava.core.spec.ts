@@ -26,9 +26,9 @@ describe('ZavaCore.GrandTour', () => {
 
     O = grandTour.rotate(1);
     E = [
-      [-1.7452406437283512, 99.98476951563913],
-      [49.41063787657678, 34.20087682707722],
-      [99.98476951563913, 1.7452406437283512]
+      [0, 100],
+      [50.21536, 32.93620],
+      [100, 0]
     ];
 
     expect(E.length).toBe(O.length);
@@ -170,12 +170,8 @@ describe('ZavaCore.Util', () => {
       [2.0, 1.0],
       [3.0, 0.5]
     ];
-    const A = [1.0, 0.5];
-    const B = [3.0, 2.0];
-    const C = [0.0, 0.0];
-    const D = [100.0, 100.0];
 
-    const E = Util.rescale(M, A, B, C, D);
+    const E = Util.rescale(M, 0.0, 100.0);
     const O = [
       [0, 100],
       [50, 33.3333],
