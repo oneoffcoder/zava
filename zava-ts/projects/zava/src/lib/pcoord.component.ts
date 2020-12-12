@@ -2,6 +2,9 @@ import { Component, Input } from '@angular/core';
 import * as d3 from 'd3';
 import {GrandTour} from './zava.core';
 
+/**
+ * Parallel coordinate component.
+ */
 @Component({
   selector: 'lib-pcoord',
   template: `
@@ -11,42 +14,78 @@ import {GrandTour} from './zava.core';
 })
 export class PcoordComponent {
 
+  /**
+   * Continuous data. Should have headers, data and colors for each record.
+   */
   pData: {headers: Array<string>, data: Array<Array<number>>, colors: Array<string>};
 
+  /**
+   * Gets the data.
+   */
   @Input()
   get data(): {headers: Array<string>, data: Array<Array<number>>, colors: Array<string>} {
     return this.pData;
   }
 
+  /**
+   * Sets the data.
+   * @param data Data.
+   */
   set data(data: {headers: Array<string>, data: Array<Array<number>>, colors: Array<string>}) {
     this.pData = data;
     this.init();
   }
 
+  /**
+   * Margin at the top.
+   */
   @Input()
   marginTop = 50;
 
+  /**
+   * Margin at the bottom.
+   */
   @Input()
   marginBottom = 10;
 
+  /**
+   * Margin to the right.
+   */
   @Input()
   marginRight = 10;
 
+  /**
+   * Margin to the left.
+   */
   @Input()
   marginLeft = 50;
 
+  /**
+   * Total width of SVG display.
+   */
   @Input()
   totalWidth = 960;
 
+  /**
+   * Total height of SVG display.
+   */
   @Input()
   totalHeight = 500;
 
+  /**
+   * Line attributes. These can be overridden with any valid
+   * attributes for the SVG <line> element.
+   */
   @Input()
   lineAttrs = new Map<string, string>([
     ['fill', 'none'],
     ['shape-rendering', 'crispEdges']
   ]);
 
+  /**
+   * Axis label attributes. These can be overriden with any valid
+   * attributes for the SVG <text> element.
+   */
   @Input()
   axisLabelAttrs = new Map<string, string>([
     ['text-anchor', 'middle'],
@@ -56,26 +95,62 @@ export class PcoordComponent {
     ['fill', 'black']
   ]);
 
+  /**
+   * D3 line function to create a line from a list of (x, y) coordinates.
+   */
   line = d3.line();
+
+  /**
+   * Scaler for the x-axis.
+   */
   xScaler: any;
+
+  /**
+   * Dictionary of scalers for the y-axes.
+   */
   yScalers: any;
 
+  /**
+   * The degree at which we have rotated to.
+   */
   degree = 0;
 
+  /**
+   * The amount of rotation to change by.
+   */
   @Input()
   degreeDelta = 0.5;
 
+  /**
+   * The minimum value to scale to.
+   */
   @Input()
   minScaling = 0.0;
 
+  /**
+   * The maximum value to scale to.
+   */
   @Input()
   maxScaling = 100.0;
 
+  /**
+   * Grand Tour instance that handles rotation.
+   */
   grandTour: GrandTour;
 
+  /**
+   * Boolean to indicate if we should stop animation.
+   */
   stopAnimation = true;
+
+  /**
+   * Timer handle for setInterval().
+   */
   timer: any;
 
+  /**
+   * ctor.
+   */
   constructor() {
     this.pData = {
       headers: new Array<string>(),
@@ -85,6 +160,10 @@ export class PcoordComponent {
     this.grandTour = new GrandTour(this.pData.data);
   }
 
+  /**
+   * Initialization.
+   * @private
+   */
   private init(): void {
     if (!this.isValid()) {
       return;
@@ -163,6 +242,9 @@ export class PcoordComponent {
       });
   }
 
+  /**
+   * Do one rotation forward.
+   */
   public rotateForward(): void {
     if (!this.isValid()) {
       return;
@@ -176,6 +258,9 @@ export class PcoordComponent {
     this.doRotation();
   }
 
+  /**
+   * Do one rotation backward.
+   */
   public rotateBackward(): void {
     if (!this.isValid()) {
       return;
@@ -189,6 +274,9 @@ export class PcoordComponent {
     this.doRotation();
   }
 
+  /**
+   * Reset the rotation.
+   */
   public resetRotation(): void {
     if (!this.isValid()) {
       return;
@@ -198,6 +286,10 @@ export class PcoordComponent {
     this.doRotation();
   }
 
+  /**
+   * Do the rotation.
+   * @private
+   */
   private doRotation(): void {
     if (!this.isValid()) {
       return;
@@ -211,6 +303,11 @@ export class PcoordComponent {
       .attr('d', (row) => this.getLine(row));
   }
 
+  /**
+   * Creates a visual (SVG) line from a row/record.
+   * @param row Record.
+   * @private
+   */
   private getLine(row: number[]): string {
     const line = this.line;
     const xScaler = this.xScaler;
@@ -226,8 +323,11 @@ export class PcoordComponent {
     return rowToLine(row) as string;
   }
 
+  /**
+   * Starts the rotation animation.
+   */
   public animateRotation(): void {
-    if (!this.isValid()) {
+    if (!this.isValid() || this.stopAnimation === false) {
       return;
     }
 
@@ -236,14 +336,21 @@ export class PcoordComponent {
       if (this.stopAnimation === true) {
         clearInterval(this.timer);
       }
-      this.rotateBackward();
+      this.rotateForward();
     }, 100);
   }
 
+  /**
+   * Stops the rotation.
+   */
   public stopRotation(): void {
     this.stopAnimation = true;
   }
 
+  /**
+   * Checks if the state of the component is valid for rendering.
+   * @private
+   */
   private isValid(): boolean {
     return this.pData && this.pData.data && this.pData.data.length > 0;
   }
