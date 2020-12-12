@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as d3 from 'd3';
 import {GrandTour} from '../zava.core';
 
