@@ -35,6 +35,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   yScalers: any;
 
   degree = 0;
+  degreeDelta = 0.5;
   grandTour: GrandTour;
 
   constructor() {
@@ -552,7 +553,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   }
 
   rotateForward(): void {
-    this.degree++;
+    this.degree += this.degreeDelta;
     if (this.degree > 360) {
       this.degree = 0;
     }
@@ -561,7 +562,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   }
 
   rotateBackward(): void {
-    this.degree--;
+    this.degree -= this.degreeDelta;
     if (this.degree < 0) {
       this.degree = 360;
     }
