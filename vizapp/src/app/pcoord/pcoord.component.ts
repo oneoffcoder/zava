@@ -39,6 +39,9 @@ export class PcoordComponent implements OnInit, AfterViewInit {
   degreeDelta = 0.5;
   grandTour: GrandTour;
 
+  stopAnimation = true;
+  timer: any;
+
   constructor() {
     this.data = this.getData();
     this.grandTour = new GrandTour(this.data.data);
@@ -592,7 +595,17 @@ export class PcoordComponent implements OnInit, AfterViewInit {
     return rowToLine(row) as string;
   }
 
-  animateRotation() {
+  animateRotation(): void {
+    this.stopAnimation = false;
+    this.timer = setInterval(() => {
+      if (this.stopAnimation === true) {
+        clearInterval(this.timer);
+      }
+      this.rotateBackward();
+    }, 100);
+  }
 
+  stopRotation(): void {
+    this.stopAnimation = true;
   }
 }
