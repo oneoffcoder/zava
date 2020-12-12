@@ -31,7 +31,8 @@ export class PcoordComponent implements OnInit, AfterViewInit {
     ['fill', 'black']
   ]);
 
-  lines: any;
+  xScaler: any;
+  yScalers: any;
 
   degree = 0;
   grandTour: GrandTour;
@@ -56,12 +57,14 @@ export class PcoordComponent implements OnInit, AfterViewInit {
     const width = this.totalWidth - margin.left - margin.right;
     const height = this.totalHeight - margin.top - margin.bottom;
 
-    const x = d3.scaleLinear([0, this.data.headers.length], [0, width]);
-    const y = new Map<number, any>(this.data.headers.map((header, i) => {
+    const xScaler = d3.scaleLinear([0, this.data.headers.length], [0, width]);
+    const yScalers = new Map<number, any>(this.data.headers.map((header, i) => {
       const domain = d3.extent(this.data.data, (row) => row[i]) as [number, number];
       const range = [height, 0];
       return [i, d3.scaleLinear(domain, range)];
     }));
+    this.xScaler = xScaler;
+    this.yScalers = yScalers;
 
     const svg = d3.select('div#zavaDisplay')
       .append('svg')
@@ -73,14 +76,14 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     const line = d3.line();
-    const toCoord = (v: number, c: number) => [x(c), y.get(c)(v)];
+    const toCoord = (v: number, c: number) => [xScaler(c), yScalers.get(c)(v)];
     const rowToCoord = (row: number[]) => row.map((v, c) => toCoord(v, c));
     const rowToLine = (row: number[]) => {
       const data = rowToCoord(row) as [number, number][];
       return line(data);
     };
 
-    this.lines = svg.append('g')
+    svg.append('g')
       .attr('class', 'lines')
       .selectAll('path')
       .data(this.data.data)
@@ -97,19 +100,19 @@ export class PcoordComponent implements OnInit, AfterViewInit {
         }
       });
 
-    const dimensions = y.values();
+    const dimensions = yScalers.values();
     const g = svg.selectAll('.dimension')
       .data(dimensions)
       .enter()
       .append('g')
       .attr('class', 'dimension')
-      .attr('transform', (h, i) => `translate(${x(i)})`);
+      .attr('transform', (h, i) => `translate(${xScaler(i)})`);
 
     const axis = d3.axisLeft(d3.scaleLinear([0, this.data.headers.length], [0, width]));
     g.append('g')
       .attr('class', 'axis')
       .each((data, index, group) => {
-        d3.select(group[index]).call(axis.scale(y.get(index)));
+        d3.select(group[index]).call(axis.scale(yScalers.get(index)));
       })
       .append('text')
       .text((e, i) => this.data.headers[i])
@@ -136,7 +139,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
 
     const colors = data.map((rows) => rows[1] < 6.0 ? '#e0e0e0' : 'steelblue');
 
-    return {headers, data: items, colors};
+    return {headers, data, colors};
   }
 
   private getCsv(): string {
@@ -548,22 +551,46 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       'Volvo Diesel,30.7,6,145,76,3160,19.6,81';
   }
 
-  rotate(): void {
+  rotateForward(): void {
     this.degree++;
     if (this.degree > 360) {
       this.degree = 0;
     }
 
+    this.doRotation();
+  }
+
+  rotateBackward(): void {
+    this.degree--;
+    if (this.degree < 0) {
+      this.degree = 360;
+    }
+
+    this.doRotation();
+  }
+
+  resetRotation(): void {
+    this.degree = 0;
+    this.doRotation();
+  }
+
+  private doRotation(): void {
+    const line = d3.line();
+    const xScaler = this.xScaler;
+    const yScalers = this.yScalers;
+
+    const toCoord = (v: number, c: number) => [xScaler(c), yScalers.get(c)(v)];
+    const rowToCoord = (row: number[]) => row.map((v, c) => toCoord(v, c));
+    const rowToLine = (row: number[]) => {
+      const d = rowToCoord(row) as [number, number][];
+      return line(d);
+    };
+
     const data = this.grandTour.rotate(this.degree);
-    console.log(data);
-    console.log('---');
     this.data.data = data;
 
-    d3.selectAll('path .line-path')
-      .each((x) => {
-        console.log(`testing ${x}`);
-        console.log(x);
-      });
-    console.log('huh?');
+    d3.selectAll('.line-path')
+      .data(this.data.data)
+      .attr('d', (row) => rowToLine(row));
   }
 }

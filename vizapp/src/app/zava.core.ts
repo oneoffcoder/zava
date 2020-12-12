@@ -204,12 +204,15 @@ export class Util {
     for (let r = 0; r < rows; r++) {
       const data = new Array<number>();
       for (let c = 0; c < cols; c++) {
-        const scaled = (M[r][c] - A[c]) / (B[c] - A[c]) * (D[c] - C[c]) + C[c];
+        let scaled = (M[r][c] - A[c]) / (B[c] - A[c]) * (D[c] - C[c]) + C[c];
+
         if (isNaN(scaled)) {
-          data.push(0.0);
+          scaled = 0.0;
         } else {
-          data.push(scaled);
+          scaled = Math.min(max, Math.max(min, scaled));
         }
+
+        data.push(scaled);
       }
       S.push(data);
     }
