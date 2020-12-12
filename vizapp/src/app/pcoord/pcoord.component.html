@@ -1,14 +1,13 @@
 <!--
 https://bl.ocks.org/jasondavies/1341281
 -->
-<h2>Parallel Coordinates</h2>
-
 <div id="zavaDisplay"></div>
 
 <section id="zavaControls">
   <div class="example-button-row">
     <button mat-raised-button color="primary" (click)="rotateForward()">Forward</button>
-    <button mat-raised-button color="accent" (click)="rotateBackward()">Backward</button>
-    <button mat-raised-button color="warn" (click)="resetRotation()">Reset</button>
+    <button mat-raised-button color="primary" (click)="rotateBackward()">Backward</button>
+    <button mat-raised-button color="accent" (click)="resetRotation()">Reset</button>
+    <button mat-raised-button color="warn" (click)="animateRotation()">Animation</button>
   </div>
 </section>

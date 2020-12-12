@@ -1,7 +1,20 @@
-<h1>D3 Demo</h1>
+<div id="display" class="display">
+  <mat-card>
+    <h1>zava, Parallel Coordinates with Grand Tour</h1>
+  </mat-card>
 
-<div>
-  <app-pcoord></app-pcoord>
+  <div class="display">
+    <mat-chip-list aria-label="tags">
+      <mat-chip>parallel coordinates</mat-chip>
+      <mat-chip>grand tour</mat-chip>
+      <mat-chip color="primary" selected>massive data</mat-chip>
+      <mat-chip color="accent" selected>high-dimensional data</mat-chip>
+      <mat-chip color="warn" selected>data science</mat-chip>
+      <mat-chip color="warn" selected>exploratory data visualization</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <div class="display">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-<router-outlet></router-outlet>

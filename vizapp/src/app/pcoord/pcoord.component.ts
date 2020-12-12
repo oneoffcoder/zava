@@ -591,4 +591,8 @@ export class PcoordComponent implements OnInit, AfterViewInit {
 
     return rowToLine(row) as string;
   }
+
+  animateRotation() {
+
+  }
 }
