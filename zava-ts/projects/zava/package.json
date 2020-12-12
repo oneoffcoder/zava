@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --no-watch --code-coverage",
+    "test": "ng test",
+    "test-coverage": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
     "init": "npm install & npm-install-peers",
     "compodoc": "compodoc -p tsconfig.lib.json -n zava --hideGenerator --customFavicon docs/favicon.ico --customLogo docs/logo.png --includes docs --includesName More -a docs/images src -s"

@@ -144,6 +144,12 @@ export class PcoordComponent {
   stopAnimation = true;
 
   /**
+   * Number of milliseconds to wait in between animation of rotation.
+   */
+  @Input()
+  animationDelta = 100;
+
+  /**
    * Timer handle for setInterval().
    */
   timer: any;
@@ -295,8 +301,7 @@ export class PcoordComponent {
       return;
     }
 
-    const data = this.grandTour.rotate(this.degree);
-    this.data.data = data;
+    this.data.data = this.grandTour.rotate(this.degree);
 
     d3.selectAll('.line-path')
       .data(this.data.data)
@@ -326,7 +331,7 @@ export class PcoordComponent {
   /**
    * Starts the rotation animation.
    */
-  public animateRotation(): void {
+  public startRotationAnimation(): void {
     if (!this.isValid() || this.stopAnimation === false) {
       return;
     }
@@ -335,15 +340,18 @@ export class PcoordComponent {
     this.timer = setInterval(() => {
       if (this.stopAnimation === true) {
         clearInterval(this.timer);
+        this.timer = null;
+        this.stopAnimation = true;
+      } else {
+        this.rotateForward();
       }
-      this.rotateForward();
-    }, 100);
+    }, this.animationDelta);
   }
 
   /**
-   * Stops the rotation.
+   * Stops the animation rotation.
    */
-  public stopRotation(): void {
+  public stopAnimationRotation(): void {
     this.stopAnimation = true;
   }
 
