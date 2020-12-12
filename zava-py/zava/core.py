@@ -68,18 +68,21 @@ def _rescale(M, C, D):
     return (M - A) / (B - A) * (D - C) + C
 
 
-def _rotate(M, deg=0.0):
+def _rotate(M, C, D, deg=0.0):
     """
     Rotates the specified matrix.
 
     :param M: Matrix.
+    :param C: Vector of new target minimums.
+    :param D: Vector of new target maximums.
     :param deg: Rotation in degrees. Default 0.0.
     :return: Matrix (rotated).
     """
     R = __get_givens(M.shape[1], deg)
     G = np.dot(M, R)
+    S = _rescale(G, C, D)
 
-    return G
+    return S
 
 
 class GrandTour(object):
@@ -102,9 +105,9 @@ class GrandTour(object):
         else:
             self.__headers = [f'x{i}' for i in range(matrix.shape[1])]
 
-        C = np.repeat(c, matrix.shape[1])
-        D = np.repeat(d, matrix.shape[1])
-        self.__matrix = _rescale(matrix, C, D)
+        self.__C = np.repeat(c, matrix.shape[1])
+        self.__D = np.repeat(d, matrix.shape[1])
+        self.__matrix = matrix
 
     @property
     def headers(self):
@@ -128,7 +131,7 @@ class GrandTour(object):
         :param return_dataframe: Boolean. Default is True.
         :return: Pandas dataframe or 2-D numpy ndarray.
         """
-        S = _rotate(self.__matrix, degree)
+        S = _rotate(self.__matrix, self.__C, self.__D, degree)
         if transpose:
             S = S.T
 
