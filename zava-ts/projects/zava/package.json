@@ -18,7 +18,9 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@types/d3": "^6.2.0",
     "@types/mathjs": "^6.0.8",
+    "d3": "^6.3.1",
     "mathjs": "^8.1.0"
   }
 }
