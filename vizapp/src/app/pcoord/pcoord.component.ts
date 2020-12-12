@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import * as d3 from 'd3';
+import {GrandTour} from '../zava.core';
 
 @Component({
   selector: 'app-pcoord',
@@ -30,8 +31,15 @@ export class PcoordComponent implements OnInit, AfterViewInit {
     ['fill', 'black']
   ]);
 
+  lines: any;
+
+  degree = 0;
+  grandTour: GrandTour;
+
   constructor() {
     this.data = this.getData();
+    this.grandTour = new GrandTour(this.data.data);
+    this.data.data = this.grandTour.rotate(this.degree);
   }
 
   ngOnInit(): void {
@@ -72,7 +80,7 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       return line(data);
     };
 
-    svg.append('g')
+    this.lines = svg.append('g')
       .attr('class', 'lines')
       .selectAll('path')
       .data(this.data.data)
@@ -124,11 +132,11 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       .map(tokens => tokens.filter((v, i) => i > 0))
       .map(tokens => tokens.map(v => v.trim()))
       .map(tokens => tokens.map(v => +v));
-    // const items = data.slice(0, 3);
+    const items = data.slice(0, 3);
 
     const colors = data.map((rows) => rows[1] < 6.0 ? '#e0e0e0' : 'steelblue');
 
-    return {headers, data, colors};
+    return {headers, data: items, colors};
   }
 
   private getCsv(): string {
@@ -540,4 +548,22 @@ export class PcoordComponent implements OnInit, AfterViewInit {
       'Volvo Diesel,30.7,6,145,76,3160,19.6,81';
   }
 
+  rotate(): void {
+    this.degree++;
+    if (this.degree > 360) {
+      this.degree = 0;
+    }
+
+    const data = this.grandTour.rotate(this.degree);
+    console.log(data);
+    console.log('---');
+    this.data.data = data;
+
+    d3.selectAll('path .line-path')
+      .each((x) => {
+        console.log(`testing ${x}`);
+        console.log(x);
+      });
+    console.log('huh?');
+  }
 }
