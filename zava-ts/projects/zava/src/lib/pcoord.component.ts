@@ -168,7 +168,6 @@ export class PcoordComponent {
 
   /**
    * Initialization.
-   * @private
    */
   private init(): void {
     if (!this.isValid()) {
@@ -294,7 +293,6 @@ export class PcoordComponent {
 
   /**
    * Do the rotation.
-   * @private
    */
   private doRotation(): void {
     if (!this.isValid()) {
@@ -311,7 +309,6 @@ export class PcoordComponent {
   /**
    * Creates a visual (SVG) line from a row/record.
    * @param row Record.
-   * @private
    */
   private getLine(row: number[]): string {
     const line = this.line;
@@ -357,7 +354,6 @@ export class PcoordComponent {
 
   /**
    * Checks if the state of the component is valid for rendering.
-   * @private
    */
   private isValid(): boolean {
     return this.pData && this.pData.data && this.pData.data.length > 0;
