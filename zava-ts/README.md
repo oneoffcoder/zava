@@ -4,7 +4,7 @@ Parallel coordinates with Grand Tour for exploratory data visualization of massi
 
 - [GitHub](https://github.com/oneoffcoder/zava)
 - [Documentation](https://zava.readthedocs.io/)
-- [NPM](https://www.npmjs.com/package/zava)
+- [NPM](- [NPM](https://www.npmjs.com/package/@oneoffcoder/zava))
 - [Gitter](https://gitter.im/dataflava/zava)
 
 # Installation
