@@ -57,6 +57,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="additional-pages"' : 'id="xs-additional-pages"' }>
                                     <li class="link ">
+                                        <a href="additional-documentation/usage.html" data-type="entity-link" data-context-id="additional">Usage</a>
+                                    </li>
+                                    <li class="link ">
                                         <a href="additional-documentation/development.html" data-type="entity-link" data-context-id="additional">Development</a>
                                     </li>
                                     <li class="link ">

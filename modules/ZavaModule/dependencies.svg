@@ -24,13 +24,13 @@
 <title>cluster_ZavaModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="170,-70 170,-268 326,-268 326,-70 170,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_ZavaModule_exports</title>
-<polygon fill="none" stroke="black" points="178,-208 178,-260 318,-260 318,-208 178,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_ZavaModule_declarations</title>
 <polygon fill="none" stroke="black" points="180,-78 180,-130 316,-130 316,-78 180,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_ZavaModule_exports</title>
+<polygon fill="none" stroke="black" points="178,-208 178,-260 318,-260 318,-208 178,-208"/>
 </g>
 <!-- PcoordComponent -->
 <g id="node1" class="node">

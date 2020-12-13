@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>zava</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">zava</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+<h1 id="usage">Usage</h1>
+<p><code>zava</code> was built as an Angular library and meant for use with Angular applications (<code>v11</code> or higher). </p>
+<h2 id="installation">Installation</h2>
+<p>To use <code>zava</code> with your Angular application, install it from the <code>npm</code> <a href="https://www.npmjs.com/package/@oneoffcoder/zava">repository</a>.</p>
+<div><pre class="line-numbers"><code class="language-bash">npm i &#64;oneoffcoder/zava &#64;types/d3 &#64;types/mathjs d3 mathjs --save-dev</code></pre></div><h2 id="module-import">Module import</h2>
+<p>Go ahead and import <code>ZavaModule</code> into your <code>app.module.ts</code> file. A snippet is shown below.</p>
+<div><pre class="line-numbers"><code class="language-typescript">import {ZavaModule} from &#39;&#64;oneoffcoder/zava&#39;;
+
+&#64;NgModule({
+  declarations: [
+    AppComponent,
+    DefaultComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ZavaModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }</code></pre></div><h2 id="component">Component</h2>
+<p>In any of your component, you can now use the component.</p>
+<div><pre class="line-numbers"><code class="language-html">&lt;lib-pcoord&gt;&lt;/lib-pcoord&gt;</code></pre></div><p>You might also want to add controls to animate the Grand Tour.</p>
+<div><pre class="line-numbers"><code class="language-html">&lt;div id=&quot;zavaControls&quot;&gt;
+  &lt;div&gt;
+    &lt;button (click)=&quot;rotateForward()&quot;&gt;Forward&lt;/button&gt;
+    &lt;button (click)=&quot;rotateBackward()&quot;&gt;Backward&lt;/button&gt;
+    &lt;button (click)=&quot;resetRotation()&quot;&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button (click)=&quot;animateRotation()&quot;&gt;Animation&lt;/button&gt;
+    &lt;button (click)=&quot;stopRotation()&quot;&gt;Stop Animation&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div><p>Your backing TypeScript file can access the component using <code>@ViewChild</code>.</p>
+<div><pre class="line-numbers"><code class="language-typescript">&#64;ViewChild(PcoordComponent) private pcoord: PcoordComponent;</code></pre></div><p>The idea is then to set data on the component.</p>
+<div><pre class="line-numbers"><code class="language-typescript">ngAfterViewInit(): void {
+    const data = this.getData();
+    this.pcoord.data = data;
+}
+
+private getData(): {headers: Array&lt;string&gt;, data: Array&lt;Array&lt;number&gt;&gt;, colors: Array&lt;string&gt;} {
+    headers = [&#39;x1&#39;, &#39;x2&#39;];
+    data = [[1, 2], [3, 4], [5, 6]];
+    colors = [&#39;blue&#39;, &#39;green&#39;, &#39;black&#39;];
+    return {headers, data, colors};
+}</code></pre></div><p>Make sure you add handlers for the buttons.</p>
+<div><pre class="line-numbers"><code class="language-typescript">rotateForward(): void {
+    this.pcoord.rotateForward();
+}
+
+rotateBackward(): void {
+    this.pcoord.rotateBackward();
+}
+
+resetRotation(): void {
+    this.pcoord.resetRotation();
+}
+
+animateRotation(): void {
+    this.pcoord.startRotationAnimation();
+}
+
+stopRotation(): void {
+    this.pcoord.stopAnimationRotation();
+}</code></pre></div><h2 id="barebones-example">Barebones Example</h2>
+<p><a href="https://github.com/oneoffcoder/zava/tree/ng-demo">A complete working example is available</a>.</p>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'usage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
