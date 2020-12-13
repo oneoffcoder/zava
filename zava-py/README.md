@@ -3,6 +3,7 @@
 Parallel coordinates with Grand Tour for exploratory data visualization of massive and high-dimensional data in Python. If you want a desktop application for use, try [VizApp](https://github.com/oneoffcoder/vizapp).
 
 
+- [GitHub](https://github.com/oneoffcoder/zava)
 - [Documentation](https://zava.readthedocs.io/)
 - [PyPi](https://pypi.org/project/zava/) 
 - [Gitter](https://gitter.im/dataflava/zava)
