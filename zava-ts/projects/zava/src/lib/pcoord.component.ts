@@ -6,7 +6,7 @@ import {GrandTour} from './zava.core';
  * Parallel coordinate component.
  */
 @Component({
-  selector: 'lib-pcoord',
+  selector: 'zava-pcoord',
   template: `
     <div id="zavaDisplay"></div>
   `,
