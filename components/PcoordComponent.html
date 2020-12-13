@@ -1,0 +1,1905 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>zava</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">zava</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>PcoordComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/lib/pcoord.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Parallel coordinate component.</p>
+
+    </p>
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>lib-pcoord</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;zavaDisplay&quot;&gt;&lt;/div&gt;
+</code></pre></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#degree">degree</a>
+                            </li>
+                            <li>
+                                <a href="#grandTour">grandTour</a>
+                            </li>
+                            <li>
+                                <a href="#line">line</a>
+                            </li>
+                            <li>
+                                <a href="#pData">pData</a>
+                            </li>
+                            <li>
+                                <a href="#stopAnimation">stopAnimation</a>
+                            </li>
+                            <li>
+                                <a href="#timer">timer</a>
+                            </li>
+                            <li>
+                                <a href="#xScaler">xScaler</a>
+                            </li>
+                            <li>
+                                <a href="#yScalers">yScalers</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#doRotation">doRotation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getLine">getLine</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#init">init</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isValid">isValid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resetRotation">resetRotation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rotateBackward">rotateBackward</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rotateForward">rotateForward</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#startRotationAnimation">startRotationAnimation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stopAnimationRotation">stopAnimationRotation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#animationDelta">animationDelta</a>
+                            </li>
+                            <li>
+                                <a href="#axisLabelAttrs">axisLabelAttrs</a>
+                            </li>
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#degreeDelta">degreeDelta</a>
+                            </li>
+                            <li>
+                                <a href="#lineAttrs">lineAttrs</a>
+                            </li>
+                            <li>
+                                <a href="#marginBottom">marginBottom</a>
+                            </li>
+                            <li>
+                                <a href="#marginLeft">marginLeft</a>
+                            </li>
+                            <li>
+                                <a href="#marginRight">marginRight</a>
+                            </li>
+                            <li>
+                                <a href="#marginTop">marginTop</a>
+                            </li>
+                            <li>
+                                <a href="#maxScaling">maxScaling</a>
+                            </li>
+                            <li>
+                                <a href="#minScaling">minScaling</a>
+                            </li>
+                            <li>
+                                <a href="#totalHeight">totalHeight</a>
+                            </li>
+                            <li>
+                                <a href="#totalWidth">totalWidth</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#data">data</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/lib/pcoord.component.ts:155</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>ctor.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="animationDelta"></a>
+                        <b>animationDelta</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>100</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/lib/pcoord.component.ts:150</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Number of milliseconds to wait in between animation of rotation.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="axisLabelAttrs"></a>
+                        <b>axisLabelAttrs</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, string&gt;([
+    [&#x27;text-anchor&#x27;, &#x27;middle&#x27;],
+    [&#x27;y&#x27;, &#x27;-9&#x27;],
+    [&#x27;text-shadow&#x27;, &#x27;0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff&#x27;],
+    [&#x27;cursor&#x27;, &#x27;move&#x27;],
+    [&#x27;fill&#x27;, &#x27;black&#x27;]
+  ])</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/lib/pcoord.component.ts:90</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Axis label attributes. These can be overriden with any valid
+attributes for the SVG <text> element.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/lib/pcoord.component.ts:26</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Gets the data.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="degreeDelta"></a>
+                        <b>degreeDelta</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0.5</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/lib/pcoord.component.ts:122</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The amount of rotation to change by.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lineAttrs"></a>
+                        <b>lineAttrs</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, string&gt;([
+    [&#x27;fill&#x27;, &#x27;none&#x27;],
+    [&#x27;shape-rendering&#x27;, &#x27;crispEdges&#x27;]
+  ])</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/lib/pcoord.component.ts:80</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Line attributes. These can be overridden with any valid
+attributes for the SVG <line> element.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="marginBottom"></a>
+                        <b>marginBottom</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>10</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/lib/pcoord.component.ts:49</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Margin at the bottom.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="marginLeft"></a>
+                        <b>marginLeft</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>50</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/lib/pcoord.component.ts:61</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Margin to the left.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="marginRight"></a>
+                        <b>marginRight</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>10</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/lib/pcoord.component.ts:55</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Margin to the right.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="marginTop"></a>
+                        <b>marginTop</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>50</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/lib/pcoord.component.ts:43</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Margin at the top.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxScaling"></a>
+                        <b>maxScaling</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>100.0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/lib/pcoord.component.ts:134</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The maximum value to scale to.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minScaling"></a>
+                        <b>minScaling</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0.0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/lib/pcoord.component.ts:128</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The minimum value to scale to.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalHeight"></a>
+                        <b>totalHeight</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>500</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/lib/pcoord.component.ts:73</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Total height of SVG display.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalWidth"></a>
+                        <b>totalWidth</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>960</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/lib/pcoord.component.ts:67</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Total width of SVG display.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doRotation"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            doRotation
+                        </b>
+                        <a href="#doRotation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>doRotation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="297"
+                            class="link-to-prism">src/lib/pcoord.component.ts:297</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Do the rotation.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLine"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            getLine
+                        </b>
+                        <a href="#getLine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLine(row: number[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="313"
+                            class="link-to-prism">src/lib/pcoord.component.ts:313</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates a visual (SVG) line from a row/record.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                            <code>number[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Record.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="init"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            init
+                        </b>
+                        <a href="#init"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>init()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">src/lib/pcoord.component.ts:172</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialization.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValid"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            isValid
+                        </b>
+                        <a href="#isValid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isValid()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="358"
+                            class="link-to-prism">src/lib/pcoord.component.ts:358</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks if the state of the component is valid for rendering.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetRotation"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            resetRotation
+                        </b>
+                        <a href="#resetRotation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetRotation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="285"
+                            class="link-to-prism">src/lib/pcoord.component.ts:285</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reset the rotation.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rotateBackward"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            rotateBackward
+                        </b>
+                        <a href="#rotateBackward"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rotateBackward()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="269"
+                            class="link-to-prism">src/lib/pcoord.component.ts:269</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Do one rotation backward.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rotateForward"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            rotateForward
+                        </b>
+                        <a href="#rotateForward"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rotateForward()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="253"
+                            class="link-to-prism">src/lib/pcoord.component.ts:253</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Do one rotation forward.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startRotationAnimation"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            startRotationAnimation
+                        </b>
+                        <a href="#startRotationAnimation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>startRotationAnimation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="331"
+                            class="link-to-prism">src/lib/pcoord.component.ts:331</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Starts the rotation animation.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopAnimationRotation"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            stopAnimationRotation
+                        </b>
+                        <a href="#stopAnimationRotation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopAnimationRotation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="351"
+                            class="link-to-prism">src/lib/pcoord.component.ts:351</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Stops the animation rotation.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="degree"></a>
+                        <span class="name">
+                            <b>
+                            degree</b>
+                            <a href="#degree"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/lib/pcoord.component.ts:116</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The degree at which we have rotated to.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="grandTour"></a>
+                        <span class="name">
+                            <b>
+                            grandTour</b>
+                            <a href="#grandTour"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/GrandTour.html" target="_self" >GrandTour</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/lib/pcoord.component.ts:139</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Grand Tour instance that handles rotation.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="line"></a>
+                        <span class="name">
+                            <b>
+                            line</b>
+                            <a href="#line"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>d3.line()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/lib/pcoord.component.ts:101</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>D3 line function to create a line from a list of (x, y) coordinates.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pData"></a>
+                        <span class="name">
+                            <b>
+                            pData</b>
+                            <a href="#pData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>literal type</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/lib/pcoord.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Continuous data. Should have headers, data and colors for each record.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stopAnimation"></a>
+                        <span class="name">
+                            <b>
+                            stopAnimation</b>
+                            <a href="#stopAnimation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">src/lib/pcoord.component.ts:144</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Boolean to indicate if we should stop animation.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="timer"></a>
+                        <span class="name">
+                            <b>
+                            timer</b>
+                            <a href="#timer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/lib/pcoord.component.ts:155</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Timer handle for setInterval().</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xScaler"></a>
+                        <span class="name">
+                            <b>
+                            xScaler</b>
+                            <a href="#xScaler"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/lib/pcoord.component.ts:106</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Scaler for the x-axis.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="yScalers"></a>
+                        <span class="name">
+                            <b>
+                            yScalers</b>
+                            <a href="#yScalers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/lib/pcoord.component.ts:111</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Dictionary of scalers for the y-axes.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name"><b>data</b><a href="#data"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>data(data: literal type)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/lib/pcoord.component.ts:34</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Sets the data.</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                        <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>data</td>
+                                                    
+                                                            <td>
+                                                                        <code>literal type</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                            <td>
+                                                                    <code><p>Data.</p>
+</code>
+                                                            </td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+import * as d3 from &#x27;d3&#x27;;
+import {GrandTour} from &#x27;./zava.core&#x27;;
+
+/**
+ * Parallel coordinate component.
+ */
+@Component({
+  selector: &#x27;lib-pcoord&#x27;,
+  template: &#x60;
+    &lt;div id&#x3D;&quot;zavaDisplay&quot;&gt;&lt;/div&gt;
+  &#x60;,
+  styles: []
+})
+export class PcoordComponent {
+
+  /**
+   * Continuous data. Should have headers, data and colors for each record.
+   */
+  pData: {headers: Array&lt;string&gt;, data: Array&lt;Array&lt;number&gt;&gt;, colors: Array&lt;string&gt;};
+
+  /**
+   * Gets the data.
+   */
+  @Input()
+  get data(): {headers: Array&lt;string&gt;, data: Array&lt;Array&lt;number&gt;&gt;, colors: Array&lt;string&gt;} {
+    return this.pData;
+  }
+
+  /**
+   * Sets the data.
+   * @param data Data.
+   */
+  set data(data: {headers: Array&lt;string&gt;, data: Array&lt;Array&lt;number&gt;&gt;, colors: Array&lt;string&gt;}) {
+    this.pData &#x3D; data;
+    this.init();
+  }
+
+  /**
+   * Margin at the top.
+   */
+  @Input()
+  marginTop &#x3D; 50;
+
+  /**
+   * Margin at the bottom.
+   */
+  @Input()
+  marginBottom &#x3D; 10;
+
+  /**
+   * Margin to the right.
+   */
+  @Input()
+  marginRight &#x3D; 10;
+
+  /**
+   * Margin to the left.
+   */
+  @Input()
+  marginLeft &#x3D; 50;
+
+  /**
+   * Total width of SVG display.
+   */
+  @Input()
+  totalWidth &#x3D; 960;
+
+  /**
+   * Total height of SVG display.
+   */
+  @Input()
+  totalHeight &#x3D; 500;
+
+  /**
+   * Line attributes. These can be overridden with any valid
+   * attributes for the SVG &lt;line&gt; element.
+   */
+  @Input()
+  lineAttrs &#x3D; new Map&lt;string, string&gt;([
+    [&#x27;fill&#x27;, &#x27;none&#x27;],
+    [&#x27;shape-rendering&#x27;, &#x27;crispEdges&#x27;]
+  ]);
+
+  /**
+   * Axis label attributes. These can be overriden with any valid
+   * attributes for the SVG &lt;text&gt; element.
+   */
+  @Input()
+  axisLabelAttrs &#x3D; new Map&lt;string, string&gt;([
+    [&#x27;text-anchor&#x27;, &#x27;middle&#x27;],
+    [&#x27;y&#x27;, &#x27;-9&#x27;],
+    [&#x27;text-shadow&#x27;, &#x27;0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff&#x27;],
+    [&#x27;cursor&#x27;, &#x27;move&#x27;],
+    [&#x27;fill&#x27;, &#x27;black&#x27;]
+  ]);
+
+  /**
+   * D3 line function to create a line from a list of (x, y) coordinates.
+   */
+  line &#x3D; d3.line();
+
+  /**
+   * Scaler for the x-axis.
+   */
+  xScaler: any;
+
+  /**
+   * Dictionary of scalers for the y-axes.
+   */
+  yScalers: any;
+
+  /**
+   * The degree at which we have rotated to.
+   */
+  degree &#x3D; 0;
+
+  /**
+   * The amount of rotation to change by.
+   */
+  @Input()
+  degreeDelta &#x3D; 0.5;
+
+  /**
+   * The minimum value to scale to.
+   */
+  @Input()
+  minScaling &#x3D; 0.0;
+
+  /**
+   * The maximum value to scale to.
+   */
+  @Input()
+  maxScaling &#x3D; 100.0;
+
+  /**
+   * Grand Tour instance that handles rotation.
+   */
+  grandTour: GrandTour;
+
+  /**
+   * Boolean to indicate if we should stop animation.
+   */
+  stopAnimation &#x3D; true;
+
+  /**
+   * Number of milliseconds to wait in between animation of rotation.
+   */
+  @Input()
+  animationDelta &#x3D; 100;
+
+  /**
+   * Timer handle for setInterval().
+   */
+  timer: any;
+
+  /**
+   * ctor.
+   */
+  constructor() {
+    this.pData &#x3D; {
+      headers: new Array&lt;string&gt;(),
+      data: new Array&lt;Array&lt;number&gt;&gt;(),
+      colors: new Array&lt;string&gt;()
+    };
+    this.grandTour &#x3D; new GrandTour(this.pData.data);
+  }
+
+  /**
+   * Initialization.
+   */
+  private init(): void {
+    if (!this.isValid()) {
+      return;
+    }
+
+    this.grandTour &#x3D; new GrandTour(this.data.data);
+    this.data.data &#x3D; this.grandTour.rotate(this.degree);
+
+    const margin &#x3D; {
+      top: this.marginTop,
+      bottom: this.marginBottom,
+      left: this.marginLeft,
+      right: this.marginRight
+    };
+
+    const width &#x3D; this.totalWidth - margin.left - margin.right;
+    const height &#x3D; this.totalHeight - margin.top - margin.bottom;
+
+    const xScaler &#x3D; d3.scaleLinear([0, this.data.headers.length], [0, width]);
+    const yScalers &#x3D; new Map&lt;number, any&gt;(this.data.headers.map((header, i) &#x3D;&gt; {
+      const domain &#x3D; d3.extent(this.data.data, (row) &#x3D;&gt; row[i]) as [number, number];
+      const range &#x3D; [height, 0];
+      return [i, d3.scaleLinear(domain, range)];
+    }));
+    this.xScaler &#x3D; xScaler;
+    this.yScalers &#x3D; yScalers;
+
+    const svg &#x3D; d3.select(&#x27;div#zavaDisplay&#x27;)
+      .append(&#x27;svg&#x27;)
+      .attr(&#x27;id&#x27;, &#x27;zavaSvg&#x27;)
+      .attr(&#x27;width&#x27;, this.totalWidth)
+      .attr(&#x27;height&#x27;, this.totalHeight)
+      .attr(&#x27;font&#x27;, &#x27;10px sans-serif&#x27;)
+      .append(&#x27;g&#x27;)
+      .attr(&#x27;transform&#x27;, &#x60;translate(${margin.left},${margin.top})&#x60;);
+
+    svg.append(&#x27;g&#x27;)
+      .attr(&#x27;class&#x27;, &#x27;lines&#x27;)
+      .selectAll(&#x27;path&#x27;)
+      .data(this.data.data)
+      .enter()
+      .append(&#x27;path&#x27;)
+      .attr(&#x27;class&#x27;, &#x27;line-path&#x27;)
+      .attr(&#x27;d&#x27;, (row) &#x3D;&gt; this.getLine(row))
+      .attr(&#x27;stroke&#x27;, (row, index) &#x3D;&gt; this.data.colors[index])
+      .each((data, index, group) &#x3D;&gt; {
+        const item &#x3D; d3.select(group[index]);
+        for (const k of this.lineAttrs.keys()) {
+          const v &#x3D; this.lineAttrs.get(k) as string;
+          item.attr(k, v);
+        }
+      });
+
+    const dimensions &#x3D; yScalers.values();
+    const g &#x3D; svg.selectAll(&#x27;.dimension&#x27;)
+      .data(dimensions)
+      .enter()
+      .append(&#x27;g&#x27;)
+      .attr(&#x27;class&#x27;, &#x27;dimension&#x27;)
+      .attr(&#x27;transform&#x27;, (h, i) &#x3D;&gt; &#x60;translate(${xScaler(i)})&#x60;);
+
+    const axis &#x3D; d3.axisLeft(d3.scaleLinear([0, this.data.headers.length], [0, width]));
+    g.append(&#x27;g&#x27;)
+      .attr(&#x27;class&#x27;, &#x27;axis&#x27;)
+      .each((data, index, group) &#x3D;&gt; {
+        d3.select(group[index]).call(axis.scale(yScalers.get(index)));
+      })
+      .append(&#x27;text&#x27;)
+      .text((e, i) &#x3D;&gt; this.data.headers[i])
+      .each((data, index, group) &#x3D;&gt; {
+        const item &#x3D; d3.select(group[index]);
+        for (const k of this.axisLabelAttrs.keys()) {
+          const v &#x3D; this.axisLabelAttrs.get(k) as string;
+          item.attr(k, v);
+        }
+      });
+  }
+
+  /**
+   * Do one rotation forward.
+   */
+  public rotateForward(): void {
+    if (!this.isValid()) {
+      return;
+    }
+
+    this.degree +&#x3D; this.degreeDelta;
+    if (this.degree &gt; 360) {
+      this.degree &#x3D; 0;
+    }
+
+    this.doRotation();
+  }
+
+  /**
+   * Do one rotation backward.
+   */
+  public rotateBackward(): void {
+    if (!this.isValid()) {
+      return;
+    }
+
+    this.degree -&#x3D; this.degreeDelta;
+    if (this.degree &lt; 0) {
+      this.degree &#x3D; 360;
+    }
+
+    this.doRotation();
+  }
+
+  /**
+   * Reset the rotation.
+   */
+  public resetRotation(): void {
+    if (!this.isValid()) {
+      return;
+    }
+
+    this.degree &#x3D; 0;
+    this.doRotation();
+  }
+
+  /**
+   * Do the rotation.
+   */
+  private doRotation(): void {
+    if (!this.isValid()) {
+      return;
+    }
+
+    this.data.data &#x3D; this.grandTour.rotate(this.degree);
+
+    d3.selectAll(&#x27;.line-path&#x27;)
+      .data(this.data.data)
+      .attr(&#x27;d&#x27;, (row) &#x3D;&gt; this.getLine(row));
+  }
+
+  /**
+   * Creates a visual (SVG) line from a row/record.
+   * @param row Record.
+   */
+  private getLine(row: number[]): string {
+    const line &#x3D; this.line;
+    const xScaler &#x3D; this.xScaler;
+    const yScalers &#x3D; this.yScalers;
+
+    const toCoord &#x3D; (v: number, c: number) &#x3D;&gt; [xScaler(c), yScalers.get(c)(v)];
+    const rowToCoord &#x3D; (r: number[]) &#x3D;&gt; r.map((v, c) &#x3D;&gt; toCoord(v, c));
+    const rowToLine &#x3D; (r: number[]) &#x3D;&gt; {
+      const d &#x3D; rowToCoord(r) as [number, number][];
+      return line(d);
+    };
+
+    return rowToLine(row) as string;
+  }
+
+  /**
+   * Starts the rotation animation.
+   */
+  public startRotationAnimation(): void {
+    if (!this.isValid() || this.stopAnimation &#x3D;&#x3D;&#x3D; false) {
+      return;
+    }
+
+    this.stopAnimation &#x3D; false;
+    this.timer &#x3D; setInterval(() &#x3D;&gt; {
+      if (this.stopAnimation &#x3D;&#x3D;&#x3D; true) {
+        clearInterval(this.timer);
+        this.timer &#x3D; null;
+        this.stopAnimation &#x3D; true;
+      } else {
+        this.rotateForward();
+      }
+    }, this.animationDelta);
+  }
+
+  /**
+   * Stops the animation rotation.
+   */
+  public stopAnimationRotation(): void {
+    this.stopAnimation &#x3D; true;
+  }
+
+  /**
+   * Checks if the state of the component is valid for rendering.
+   */
+  private isValid(): boolean {
+    return this.pData &amp;&amp; this.pData.data &amp;&amp; this.pData.data.length &gt; 0;
+  }
+
+}
+</code></pre>
+    </div>
+
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="zavaDisplay"></div></div>'
+    var COMPONENTS = [{'name': 'PcoordComponent', 'selector': 'lib-pcoord'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PcoordComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PcoordComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
