@@ -38,7 +38,7 @@ export class AppModule { }
 In any of your component, you can now use the component.
 
 ```html
-<lib-pcoord></lib-pcoord>
+<zava-pcoord></zava-pcoord>
 ```
 
 You might also want to add controls to animate the Grand Tour.
