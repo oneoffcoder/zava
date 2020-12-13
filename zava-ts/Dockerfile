@@ -20,4 +20,9 @@ RUN npm install -g @angular/cli @compodoc/compodoc \
         --includes docs \
         --includesName More \
         -a docs/images \
-        src
+        src \
+    && cd /code/dist/zava \
+    && if [ -f /code/.npmrc ]; then cp /code/.npmrc ~/.npmrc; else echo "no .npmrc to copy"; fi \
+    && if [ -f /code/.npmrc ]; then npm publish; else echo "no .npmrc to publish"; fi \
+    && if [ -f /code/.npmrc ]; then rm -f /code/.npmrc; else echo "no .npmrc to delete (code)"; fi \
+    && if [ -f ~/.npmrc ]; then rm -f ~/.npmrc; else echo "no .npmrc to delete (home)"; fi

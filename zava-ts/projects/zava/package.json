@@ -1,6 +1,6 @@
 {
   "name": "@oneoffcoder/zava",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "scripts": {
     "compodoc": "compodoc -p tsconfig.lib.json -n zava --hideGenerator --customFavicon docs/favicon.ico --customLogo docs/logo.png --includes docs --includesName More -a docs/images src -s -w"
   },
