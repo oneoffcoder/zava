@@ -1,5 +1,9 @@
 [
   {
+    "title": "Usage",
+    "file": "usage.md"
+  },
+  {
     "title": "Development",
     "file": "development.md"
   },
