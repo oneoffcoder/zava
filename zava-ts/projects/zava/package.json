@@ -1,5 +1,5 @@
 {
-  "name": "zava",
+  "name": "@oneoffcoder/zava",
   "version": "0.0.1",
   "scripts": {
     "compodoc": "compodoc -p tsconfig.lib.json -n zava --hideGenerator --customFavicon docs/favicon.ico --customLogo docs/logo.png --includes docs --includesName More -a docs/images src -s -w"
@@ -16,5 +16,24 @@
     "@types/mathjs": "^6.0.8",
     "d3": "^6.3.1",
     "mathjs": "^8.1.0"
-  }
+  },
+  "description": "Parallel coordinates with Grand Tour for exploratory data visualization of massive and high-dimensional data in TypeScript. If you want a desktop application for use, try [VizApp](https://github.com/oneoffcoder/vizapp).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oneoffcoder/zava.git"
+  },
+  "keywords": [
+    "parallel coordinates",
+    "data visualization",
+    "grand tour",
+    "high-dimensional data",
+    "massive data",
+    "exploratory data visualization"
+  ],
+  "author": "Jee Vang, Ph.D.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/oneoffcoder/zava/issues"
+  },
+  "homepage": "https://github.com/oneoffcoder/zava#readme"
 }
