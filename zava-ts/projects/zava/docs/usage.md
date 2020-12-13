@@ -105,4 +105,4 @@ stopRotation(): void {
 
 ## Barebones Example
 
-[A complete working example is available](https://github.com/oneoffcoder/zava/tree/ng-demo).
+[A complete working example is available](https://github.com/oneoffcoder/zava/tree/ng-demo/demo).
