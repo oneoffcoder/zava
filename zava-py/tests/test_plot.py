@@ -120,4 +120,4 @@ def test_gif_animation_plot():
     sp2 = SinglePlotter(gt2, params={'color': 'g'})
 
     mp = MultiPlotter([sp1, sp2], ax=None)
-    mp.save_gif('test.gif', duration=0.0001, start=0, stop=10)
+    mp.save_gif('test-animation.gif', duration=0.1, unit='ms', start=0, stop=10)
