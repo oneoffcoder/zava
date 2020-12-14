@@ -4,8 +4,15 @@
 
 Parallel coordinates with Grand Tour for exploratory data visualization of massive and high-dimensional data in TypeScript and Python. If you want a desktop application for use, try [VizApp](https://github.com/oneoffcoder/vizapp). 
 
+Packages
+
 - [NPM](https://www.npmjs.com/package/@oneoffcoder/zava)
 - [pypi](https://pypi.org/project/zava/)
+
+Documentations
+
+- [zava, Typescript](https://oneoffcoder.github.io/zava/)
+- [zava, Python](https://zava.readthedocs.io/)
 
 # Copyright
 
