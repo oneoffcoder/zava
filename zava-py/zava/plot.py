@@ -1,5 +1,7 @@
 from collections import ChainMap
 
+import gif
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -108,3 +110,59 @@ class MultiPlotter(object):
         _ = self.__ax.set_title(title)
 
         return self.__ax
+
+    @gif.frame
+    def __get_gif_frame(self, degree, figsize):
+        """
+        Gets a GIF frame.
+
+        :param degree: Degree.
+        :param figsize: Tuple of figure size (matplotlib).
+        :return: None.
+        """
+        fig, ax = plt.subplots(figsize=figsize)
+
+        for plotter in self.__plotters:
+            plotter(degree, ax)
+
+        headers = self.__plotters[0].grand_tour.headers
+        _ = ax.set_xticks(np.arange(len(headers)))
+        _ = ax.set_xticklabels(headers)
+        _ = ax.get_yaxis().set_ticks([])
+
+        if ax.get_legend() is not None:
+            _ = ax.get_legend().remove()
+
+        if 'title' in self.__kwargs:
+            title = ax.set_title('title')
+        else:
+            title = 'Grand Tour'
+        _ = ax.set_title(title)
+
+    def __get_gif_frames(self, start=0, stop=360, figsize=(15, 3)):
+        """
+        Gets a list of GIF frames.
+
+        :param start: Start degree.
+        :param stop: Stop degree.
+        :param figsize: Figure size. Default is (15, 3).
+        :return:List of frames.
+        """
+        frames = [self.__get_gif_frame(degree, figsize) for degree in range(start, stop + 1, 1)]
+        return frames
+
+    def save_gif(self, output, duration, start=0, stop=360, figsize=(15, 3), unit='s'):
+        """
+        Saves the animation as an animated GIF.
+
+        :param output: Output path.
+        :param duration: Duration per frame.
+        :param start: Start degree.
+        :param stop: Stop degree.
+        :param figsize: Figure size. Default is (15, 3).
+        :param unit: Time units. Default is 's' for seconds.
+        :return: None.
+        """
+        frames = self.__get_gif_frames(start, stop, figsize)
+        gif.save(frames, output, duration=duration, unit=unit)
+

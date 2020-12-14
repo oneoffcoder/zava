@@ -30,9 +30,9 @@ def teardown():
 
 
 @with_setup(setup, teardown)
-def test_plot():
+def test_matplotlib_animation_plot():
     """
-    Tests plotting of data.
+    Tests matplotlib animation plotting of data.
     """
     columns = ['v0', 'v1', 'v2', 'v3']
 
@@ -87,3 +87,37 @@ def test_plot():
         }
     }
     anim.save(**params)
+
+
+@with_setup(setup, teardown)
+def test_gif_animation_plot():
+    """
+    Tests gif animation plotting of data.
+    """
+    columns = ['v0', 'v1', 'v2', 'v3']
+
+    M1 = np.array([
+        [1, 1, 1, 1],
+        [2, 2, 2, 1],
+        [3, 3, 3, 3]
+    ])
+    M2 = np.array([
+        [1, 2, 3, 4],
+        [2, 2, 1, 1],
+        [1, 1, 3, 3]
+    ])
+
+    M1 = pd.DataFrame(M1, columns=columns)
+    M2 = pd.DataFrame(M2, columns=columns)
+
+    c = 0.0
+    d = 100.0
+
+    gt1 = GrandTour(M1, c, d)
+    gt2 = GrandTour(M2, c, d)
+
+    sp1 = SinglePlotter(gt1, params={'color': 'r'})
+    sp2 = SinglePlotter(gt2, params={'color': 'g'})
+
+    mp = MultiPlotter([sp1, sp2], ax=None)
+    mp.save_gif('test.gif', duration=0.0001, start=0, stop=10)

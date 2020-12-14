@@ -117,6 +117,26 @@ Your animation video will look like the following. If you have great tips on how
         Your browser does not support the video tag.
     </video>
 
+There is a lot of known issues with `ffmpeg` and `matplotlib`. You could also try saving the visualization as an animated gif.
+
+.. code-block:: python
+    :linenos:
+
+    # set up your MultiPlotter as before
+    plt.rcParams.update({'figure.max_open_warning': 0})
+    plt.style.use('ggplot')
+
+    # note how we do not pass in an axis?
+    mp = MultiPlotter([sp1, sp2], ax=None)
+
+    # save
+    # you have to play around with the duration parameter to get smoothness
+    mp.save_gif('test.gif', duration=0.0001, start=0, stop=180)
+
+.. image:: _static/images/test-animation.gif
+   :align: center
+   :alt: test grand tour and parallel coordinate animation.
+
 Considerations
 ^^^^^^^^^^^^^^
 
