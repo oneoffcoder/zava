@@ -165,4 +165,3 @@ class MultiPlotter(object):
         """
         frames = self.__get_gif_frames(start, stop, figsize)
         gif.save(frames, output, duration=duration, unit=unit)
-
