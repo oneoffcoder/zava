@@ -102,12 +102,13 @@ class GrandTour(object):
 
         if self.__is_df:
             self.__headers = list(matrix.columns)
+            self.__matrix = matrix.values
         else:
             self.__headers = [f'x{i}' for i in range(matrix.shape[1])]
+            self.__matrix = matrix
 
         self.__C = np.repeat(c, matrix.shape[1])
         self.__D = np.repeat(d, matrix.shape[1])
-        self.__matrix = matrix
 
     @property
     def headers(self):
@@ -140,9 +141,9 @@ class GrandTour(object):
 
             if self.__is_df:
                 if transpose:
-                    S.index = self.__matrix.columns
+                    S.index = self.headers
                 else:
-                    columns = {i: c for i, c in zip(S.columns, self.__matrix.columns)}
+                    columns = {i: c for i, c in zip(S.columns, self.headers)}
                     S = S.rename(columns=columns)
 
         return S
