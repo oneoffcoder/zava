@@ -146,7 +146,7 @@ class MultiPlotter(object):
         :param start: Start degree.
         :param stop: Stop degree.
         :param figsize: Figure size. Default is (15, 3).
-        :return:List of frames.
+        :return: List of frames.
         """
         frames = [self.__get_gif_frame(degree, figsize) for degree in range(start, stop + 1, 1)]
         return frames
