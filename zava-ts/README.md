@@ -12,7 +12,7 @@ Parallel coordinates with Grand Tour for exploratory data visualization of massi
 # Installation
 
 ```bash
-npm install zava
+npm install @oneoffcoder/zava
 ```
 
 # Copyright
